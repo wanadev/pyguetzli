@@ -1,4 +1,4 @@
-// JPEG OR PNG
+// GuetzliImage
 
 typedef enum {
     GUETZLI_IMAGE_TYPE_UNKNOWN,
@@ -13,12 +13,13 @@ typedef struct {
 } GuetzliImage;
 
 GuetzliImage guetzliImageOptimize(GuetzliImage in, int quality);
-GuetzliImage guetzliImageRead(const char* filename, GuetzliImageType type);
 GuetzliImage guetzliImageNew(GuetzliImageType type, int length);
 void guetzliImageFree(GuetzliImage* image);
+GuetzliImage guetzliImageReadFile(const char* filename, GuetzliImageType type);
+void guetzliImageWriteFile(const char* filename, GuetzliImage image);
 
 
-// PIXEL ARRAY
+// GuetzliRgbArray
 
 typedef struct {
     unsigned char* data;
@@ -29,4 +30,3 @@ typedef struct {
 GuetzliImage guetzliRgbArrayOptimize(GuetzliRgbArray in, int quality);
 GuetzliRgbArray guetzliRgbArrayNew(int width, int height);
 void guetzliRgbArrayFree(GuetzliRgbArray* array);
-

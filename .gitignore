@@ -5,3 +5,10 @@ dist
 __pycache__
 __env__
 README.rst
+*.o
+*.so
+*.dll
+*.dylib
+*.dpy
+*.a
+_*.cpp
