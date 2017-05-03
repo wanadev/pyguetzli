@@ -1,0 +1,7 @@
+*.egg-info
+build
+dist
+*.pyc
+__pycache__
+__env__
+README.rst
