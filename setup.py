@@ -7,7 +7,7 @@ import subprocess
 from setuptools import setup, find_packages
 from setuptools.command.build_py import build_py
 
-from pyguetzli import VERSION
+from pyguetzli.version import VERSION
 
 
 class CustomBuildPy(build_py):
