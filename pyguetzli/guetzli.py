@@ -12,8 +12,11 @@ class GuetzliImage(object):
 
     _cdata = None
 
-    def __init__(self, bytes_, type):
-        raise NotImplementedError()
+    def __init__(self, bytes_, type_):
+        guetzli_image_p = lib.guetzliImageNew(type_, len(bytes_))
+        guetzli_image_p.data = ffi.new("char[]", bytes_)
+        guetzli_image_p_gc = ffi.gc(guetzli_image_p, lib.guetzliImageFree)
+        self._cdata = guetzli_image_p_gc
 
     @classmethod
     def from_guetzli_image_p(cls, guetzli_image_p):

@@ -6,19 +6,19 @@ JPEG_PATH = "test/image.jpg"
 JPEG_LENGTH = 152485
 
 
-# class TestGuetzliImage(object):
+class TestGuetzliImage(object):
 
-    # def setup(self):
-        # self.img = guetzli.GuetzliImage(bytes("\x00\x01\x02\x04"), guetzli.GuetzliImage.TYPE_UNKNOWN)
+    def setup(self):
+        self.img = guetzli.GuetzliImage(bytes("\x00\x01\x02\x03"), guetzli.GuetzliImage.TYPE_UNKNOWN)
 
-    # def test_length(self):
-        # assert self.img.length == 4
+    def test_length(self):
+        assert self.img.length == 4
 
-    # def test_type(self):
-        # assert self.img.type == guetzli.GuetzliImage.TYPE_UNKNOWN
+    def test_type(self):
+        assert self.img.type == guetzli.GuetzliImage.TYPE_UNKNOWN
 
-    # def test_to_bytes(self):
-        # assert self.img.to_bytes() == "\x00\x01\x02\x03"
+    def test_to_bytes(self):
+        assert self.img.to_bytes() == "\x00\x01\x02\x03"
 
 
 def test_read_file_that_not_exists():
