@@ -1,32 +1,40 @@
 from _guetzli import lib, ffi
 
-from _guetzli.lib import (
-        GUETZLI_IMAGE_TYPE_JPEG,
-        GUETZLI_IMAGE_TYPE_PNG,
-        GUETZLI_IMAGE_TYPE_UNKNOWN)
-
 
 DEFAULT_JPEG_QUALITY = 95
 
 
-class GuetzliImage:
+class GuetzliImage(object):
+
+    TYPE_JPEG = lib.GUETZLI_IMAGE_TYPE_JPEG
+    TYPE_PNG = lib.GUETZLI_IMAGE_TYPE_PNG
+    TYPE_UNKNOWN = lib.GUETZLI_IMAGE_TYPE_UNKNOWN
 
     def __init__(self, bytes_, type):
-        pass
+        self._cdata = None;
+        pass  # TODO
+
+    @classmethod
+    def from_guetzli_image_p(cls, guetzli_image_p):
+        if ffi.typeof(guetzli_image_p).cname != "GuetzliImage *":
+            raise ValueError("Expected guetzli_image_p to be a 'GuetzliImage *'")
+        image = cls.__new__(cls)
+        image._cdata = guetzli_image_p
+        return image
 
     @property
     def length(self):
-        pass
+        return self._cdata.length
 
     @property
     def type(self):
-        pass
+        return self._cdata.type
 
     def to_bytes(self):
-        pass
+        return ffi.unpack(self._cdata.data, self._cdata.length)
 
     def save(self, path):
-        pass
+        lib.guetzliImageWriteFile(path, self._cdata)
 
 
 class GuetzliRgbArray:
@@ -47,11 +55,21 @@ class GuetzliRgbArray:
 
 
 def read_file(path):
-    pass
+    guetzli_image_p = lib.guetzliImageReadFile(path,
+            GuetzliImage.TYPE_JPEG)  # FIXME
+
+    if not guetzli_image_p.length:
+        raise IOError("Could not open the file")
+
+    guetzli_image_p_gc = ffi.gc(guetzli_image_p, lib.guetzliImageFree)
+
+    return GuetzliImage.from_guetzli_image_p(guetzli_image_p_gc)
 
 
 def image_optimize(image, quality=DEFAULT_JPEG_QUALITY):
-    pass
+    opti_guetzli_imge_p = lib.guetzliImageOptimize(image._cdata, quality)
+    opti_guetzli_imge_p_gc = ffi.gc(opti_guetzli_imge_p, lib.guetzliImageFree)
+    return GuetzliImage.from_guetzli_image_p(opti_guetzli_imge_p_gc)
 
 
 def rgbarray_optimize(rgbarray, quality=DEFAULT_JPEG_QUALITY):
