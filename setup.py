@@ -7,8 +7,6 @@ import subprocess
 from setuptools import setup, find_packages
 from setuptools.command.build_py import build_py
 
-from pyguetzli.version import VERSION
-
 
 class CustomBuildPy(build_py):
 
@@ -26,7 +24,7 @@ elif os.path.isfile("README.md"):
 
 setup(
     name="pyguetzli",
-    version=VERSION,
+    version="0.0.0",
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",
     url="https://github.com/wanadev/pyguetzli",
     license="Apache-2.0",
