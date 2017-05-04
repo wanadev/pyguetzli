@@ -24,6 +24,7 @@ void guetzliImageFree(GuetzliImage* image) {
     delete[] image->data;
     image->data = nullptr;
     image->length = 0;
+    free(image);
 }
 
 GuetzliImage* guetzliImageReadFile(const char* filename, GuetzliImageType type) {
