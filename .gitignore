@@ -12,3 +12,4 @@ README.rst
 *.dpy
 *.a
 _*.cpp
+.cache

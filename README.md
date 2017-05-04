@@ -22,3 +22,10 @@ then, to build and install PyGuetzli, run the following command from the
 project's root directory:
 
     pip install .
+
+
+## Testing
+
+    pip install cffi pytest
+    python setup.py develop
+    pytest

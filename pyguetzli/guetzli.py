@@ -10,9 +10,10 @@ class GuetzliImage(object):
     TYPE_PNG = lib.GUETZLI_IMAGE_TYPE_PNG
     TYPE_UNKNOWN = lib.GUETZLI_IMAGE_TYPE_UNKNOWN
 
+    _cdata = None
+
     def __init__(self, bytes_, type):
-        self._cdata = None;
-        pass  # TODO
+        raise NotImplementedError()
 
     @classmethod
     def from_guetzli_image_p(cls, guetzli_image_p):
