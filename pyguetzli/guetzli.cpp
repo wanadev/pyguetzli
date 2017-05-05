@@ -31,16 +31,16 @@ GuetzliImage* guetzliImageReadFile(const char* filename) {
     std::ifstream inFile(filename, std::ios::binary);
     std::vector<char> inBuffer((std::istreambuf_iterator<char>(inFile)), (std::istreambuf_iterator<char>()));
 
-    if (inBuffer.length() == 0) {
+    if (inBuffer.size() == 0) {
         return nullptr;
     }
 
     // Deducing type
     auto type = GUETZLI_IMAGE_TYPE_UNKNOWN;
-    if (inBuffer.length() >= 3 && memcmp(inBuffer.data(), "\xFF\xD8\xFF", 3) == 0) {
+    if (inBuffer.size() >= 3 && memcmp(inBuffer.data(), "\xFF\xD8\xFF", 3) == 0) {
         type = GUETZLI_IMAGE_TYPE_JPEG;
     }
-    else if (inBuffer.length() >= 8 && memcmp(inBuffer.data(), "\x89PNG\x0D\x0A\x1A\x0A", 8) == 0) {   
+    else if (inBuffer.size() >= 8 && memcmp(inBuffer.data(), "\x89PNG\x0D\x0A\x1A\x0A", 8) == 0) {   
         type = GUETZLI_IMAGE_TYPE_PNG;
     }
 
