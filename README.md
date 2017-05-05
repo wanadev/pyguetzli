@@ -1,6 +1,6 @@
 # PyGuetzli
 
-**PyGuetzli** is a Python bindings for Google's **Guetzli**.
+**PyGuetzli** is a Python bindings for Google's [**Guetzli**][guetzli].
 
 Description of Guetzli from official's repo:
 
@@ -10,18 +10,28 @@ Description of Guetzli from official's repo:
 > sequential (nonprogressive) JPEGs due to faster decompression speeds they
 > offer.
 
+[guetzli]: https://github.com/google/guetzli
 
-## Building PyGuetzli
 
-In order to build Guetzli, GCC, GNU Make and libpng are required. On Debian
-/ Ubuntu, this can be installed with the following command:
+## Building and Installing PyGuetzli
+
+In order to build Guetzli, GCC, GNU Make and libpng are required. On
+Debian / Ubuntu, this can be installed with the following command:
 
     sudo apt-get install build-essential libpng-dev
 
-then, to build and install PyGuetzli, run the following command from the
+
+### Installing from source
+
+To build and install PyGuetzli from source, run the following command from the
 project's root directory:
 
     pip install .
+
+
+## Using PyGuetzli
+
+TODO
 
 
 ## Testing
