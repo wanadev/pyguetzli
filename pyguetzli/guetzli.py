@@ -81,7 +81,7 @@ class GuetzliRgbArray(object):
 def read_file(path):
     guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path))
 
-    if not guetzli_image_p.length:
+    if guetzli_image_p == ffi.NULL:
         raise IOError("Could not open the file")
 
     guetzli_image_p_gc = ffi.gc(guetzli_image_p, lib.guetzliImageFree)
