@@ -13,7 +13,7 @@
 // GuetzliImage
 
 GuetzliImage* guetzliImageNew(GuetzliImageType type, int length) {
-    GuetzliImage* image = (GuetzliImage*) malloc(sizeof(GuetzliImage));
+    auto image = new GuetzliImage;
     image->type = type;
     image->length = length;
     image->data = new char[image->length];
@@ -24,7 +24,7 @@ void guetzliImageFree(GuetzliImage* image) {
     delete[] image->data;
     image->data = nullptr;
     image->length = 0;
-    free(image);
+    delete image;
 }
 
 GuetzliImage* guetzliImageReadFile(const char* filename, GuetzliImageType type) {
@@ -65,10 +65,10 @@ GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality) {
 // GuetzliRgbArray
 
 GuetzliRgbArray* guetzliRgbArrayNew(int width, int height) {
-    GuetzliRgbArray* array = (GuetzliRgbArray*) malloc(sizeof(GuetzliRgbArray));
+    auto array = new GuetzliRgbArray;
     array->width = width;
     array->height = height;
-    array->data = new char[array->width * array->height];
+    array->data = new char[3 * array->width * array->height];
     return array;
 }
 
@@ -77,13 +77,13 @@ void guetzliRgbArrayFree(GuetzliRgbArray* array) {
     array->data = nullptr;
     array->width = 0;
     array->height = 0;
-    free(array);
+    delete array;
 }
 
 GuetzliImage* guetzliRgbArrayOptimize(GuetzliRgbArray* in, int quality) {
     std::vector<uint8_t> inData;
     std::string outData;
-    inData.assign(in->data, in->data + (in->width * in->height));
+    inData.assign(in->data, in->data + (3 * in->width * in->height));
 
     guetzli::Params params;
     params.butteraugli_target = static_cast<float>(guetzli::ButteraugliScoreForQuality(quality));

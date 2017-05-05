@@ -41,7 +41,7 @@ class GuetzliImage(object):
         lib.guetzliImageWriteFile(path, self._cdata)
 
 
-class GuetzliRgbArray:
+class GuetzliRgbArray(object):
 
     _cdata = None
 
