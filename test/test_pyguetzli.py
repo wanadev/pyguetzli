@@ -15,7 +15,7 @@ def test_optimize_from_file_jpeg():
     image = pyguetzli.optimize_from_file(JPEG_PATH, 100)
     assert type(image) is pyguetzli.guetzli.GuetzliImage
     assert image.length < JPEG_LENGTH
-    assert image.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
+    assert image.to_bytes().startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
     image2 = pyguetzli.optimize_from_file(JPEG_PATH, 80)
     assert image2.length < image.length
@@ -26,7 +26,7 @@ def test_optimize_from_image_bytes_jpeg():
     image = pyguetzli.optimize_from_image_bytes(data, 100)
     assert type(image) is pyguetzli.guetzli.GuetzliImage
     assert image.length < JPEG_LENGTH
-    assert image.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
+    assert image.to_bytes().startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
     image2 = pyguetzli.optimize_from_image_bytes(data, 80)
     assert image2.length < image.length
