@@ -21,12 +21,12 @@ GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality);
 
 // GuetzliRgbArray
 
-//typedef struct {
-    //unsigned char* data;
-    //int width;
-    //int height;
-//} GuetzliRgbArray;
+typedef struct {
+    char* data;
+    int width;
+    int height;
+} GuetzliRgbArray;
 
-//GuetzliImage guetzliRgbArrayOptimize(GuetzliRgbArray in, int quality);
-//GuetzliRgbArray guetzliRgbArrayNew(int width, int height);
-//void guetzliRgbArrayFree(GuetzliRgbArray* array);
+GuetzliRgbArray* guetzliRgbArrayNew(int width, int height);
+void guetzliRgbArrayFree(GuetzliRgbArray* array);
+GuetzliImage* guetzliRgbArrayOptimize(GuetzliRgbArray* in, int quality);

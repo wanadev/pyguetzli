@@ -43,19 +43,31 @@ class GuetzliImage(object):
 
 class GuetzliRgbArray:
 
+    _cdata = None
+
     def __init__(self, data, width, height):
-        pass
+        data_length = width * height * 3
+        if len(data) != data_length:
+            raise ValueError("%ix%ipx image, but %i Bytes given. Does the given array contains only rgb data?")
+        guetzli_rgb_array_p = lib.guetzliRgbArrayNew(width, height)
+        ffi.memmove(guetzli_rgb_array_p.data, data, data_length)
+        guetzli_rgb_array_p_gc = ffi.gc(guetzli_rgb_array_p, lib.guetzliRgbArrayFree)
+        self._cdata = guetzli_rgb_array_p_gc
 
     @property
     def width(self):
-        pass
+        return self._cdata.width
 
     @property
     def height(self):
-        pass
+        return self._cdata.height
+
+    @property
+    def length(self):
+        return self.width * self.height * 3
 
     def to_bytes(self):
-        pass
+        return ffi.unpack(self._cdata.data, self.length)
 
 
 def read_file(path):
@@ -77,5 +89,7 @@ def image_optimize(image, quality=DEFAULT_JPEG_QUALITY):
 
 
 def rgbarray_optimize(rgbarray, quality=DEFAULT_JPEG_QUALITY):
-    pass
+    opti_guetzli_image_p = lib.guetzliRgbArrayOptimize(rgbarray._cdata, quality)
+    opti_guetzli_image_p_gc = ffi.gc(opti_guetzli_image_p, lib.guetzliRgbArrayFree)
+    return GuetzliImage.from_guetzli_image_p(opti_guetzli_image_p_gc)
 

@@ -64,31 +64,33 @@ GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality) {
 
 // GuetzliRgbArray
 
-//GuetzliImage guetzliRgbArrayOptimize(GuetzliRgbArray in, int quality) {
-    //std::vector<uint8_t> inData;
-    //std::string outData;
-    //inData.assign(in.data, in.data + (in.width * in.height));
+GuetzliRgbArray* guetzliRgbArrayNew(int width, int height) {
+    GuetzliRgbArray* array = (GuetzliRgbArray*) malloc(sizeof(GuetzliRgbArray));
+    array->width = width;
+    array->height = height;
+    array->data = new char[array->width * array->height];
+    return array;
+}
 
-    //guetzli::Params params;
-    //params.butteraugli_target = static_cast<float>(guetzli::ButteraugliScoreForQuality(quality));
-    //Process(params, nullptr, inData, in.width, in.height, &outData);
+void guetzliRgbArrayFree(GuetzliRgbArray* array) {
+    delete[] array->data;
+    array->data = nullptr;
+    array->width = 0;
+    array->height = 0;
+    free(array);
+}
 
-    //GuetzliImage outImage = guetzliImageNew(GUETZLI_IMAGE_TYPE_JPEG, outData.size());
-    //memcpy(outImage.data, outData.c_str(), outData.length());
-    //return outImage;
-//}
+GuetzliImage* guetzliRgbArrayOptimize(GuetzliRgbArray* in, int quality) {
+    std::vector<uint8_t> inData;
+    std::string outData;
+    inData.assign(in->data, in->data + (in->width * in->height));
 
-//GuetzliRgbArray guetzliRgbArrayNew(int width, int height) {
-    //GuetzliRgbArray array;
-    //array.width = width;
-    //array.height = height;
-    //array.data = new unsigned char[array.width * array.height];
-    //return array;
-//}
+    guetzli::Params params;
+    params.butteraugli_target = static_cast<float>(guetzli::ButteraugliScoreForQuality(quality));
+    Process(params, nullptr, inData, in->width, in->height, &outData);
 
-//void guetzliRgbArrayFree(GuetzliRgbArray* array) {
-    //delete[] array->data;
-    //array->data = nullptr;
-    //array->width = 0;
-    //array->height = 0;
-//}
+    GuetzliImage* outImage = guetzliImageNew(GUETZLI_IMAGE_TYPE_JPEG, outData.size());
+    memcpy(outImage->data, outData.c_str(), outData.length());
+    return outImage;
+}
+
