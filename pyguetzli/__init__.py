@@ -1,4 +1,3 @@
-from .version import VERSION
 from . import guetzli
 
 
