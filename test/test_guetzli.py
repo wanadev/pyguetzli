@@ -28,6 +28,7 @@ def test_read_file_that_not_exists():
 
 def test_read_file_jpeg():
     image = guetzli.read_file(JPEG_PATH)
+    assert type(image) is guetzli.GuetzliImage
     assert image.length == JPEG_LENGTH
     assert image.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
@@ -35,6 +36,7 @@ def test_read_file_jpeg():
 def test_image_optimize_jpeg():
     image = guetzli.read_file(JPEG_PATH)
     image_opti = guetzli.image_optimize(image, 100)
+    assert type(image) is guetzli.GuetzliImage
     assert image_opti.length < image.length
     assert image_opti.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
