@@ -1,9 +1,20 @@
 #include "guetzli.h"
 
 #include <stdio.h>
+#include <assert.h>
 
 int main(void)
 {
+    // --- JPEG image
+
+    GuetzliImage* image = guetzliImageReadFile("./test/image.jpg");
+    assert(image->type == GUETZLI_IMAGE_TYPE_JPEG);
+
+    GuetzliImage* outImage = guetzliImageProcess(image, 84);
+
+    guetzliImageFree(image);
+    guetzliImageFree(outImage);
+
     // --- RGB Array
 
     GuetzliRgbArray* array = guetzliRgbArrayNew(10, 10);
@@ -17,8 +28,10 @@ int main(void)
         }
     }
 
-    GuetzliImage* image = guetzliRgbArrayOptimize(array, 84);
+    outImage = guetzliRgbArrayProcess(array, 84);
+
     guetzliRgbArrayFree(array);
+    guetzliImageFree(outImage);
 
     return 0;
 }

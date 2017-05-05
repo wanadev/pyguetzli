@@ -27,9 +27,18 @@ void guetzliImageFree(GuetzliImage* image) {
     delete image;
 }
 
-GuetzliImage* guetzliImageReadFile(const char* filename, GuetzliImageType type) {
+GuetzliImage* guetzliImageReadFile(const char* filename) {
     std::ifstream inFile(filename, std::ios::binary);
     std::vector<char> inBuffer((std::istreambuf_iterator<char>(inFile)), (std::istreambuf_iterator<char>()));
+
+    // Deducing type
+    auto type = GUETZLI_IMAGE_TYPE_UNKNOWN;
+    if (memcmp(inBuffer.data(), "\xFF\xD8\xFF", 3) == 0) {
+        type = GUETZLI_IMAGE_TYPE_JPEG;
+    }
+    else if (memcmp(inBuffer.data(), "\x89PNG\x0D\x0A\x1A\x0A", 8) == 0) {   
+        type = GUETZLI_IMAGE_TYPE_PNG;
+    }
 
     // The image indeed
     GuetzliImage* image = guetzliImageNew(type, inBuffer.size());
@@ -42,10 +51,15 @@ void guetzliImageWriteFile(const char* filename, GuetzliImage* image) {
     outFile.write(image->data, image->length);
 }
 
-GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality) {
+GuetzliImage* guetzliImageProcess(GuetzliImage* in, int quality) {
+    if (in->type == GUETZLI_IMAGE_TYPE_UNKNOWN) {
+        std::cerr << "Unknown image file format." << std::endl;
+        return nullptr;
+    }
+
     if (in->type == GUETZLI_IMAGE_TYPE_PNG) {
         std::cerr << "PNG images not supported yet." << std::endl;
-        exit(1);
+        return nullptr;
     }
 
     std::string inData;
@@ -80,7 +94,7 @@ void guetzliRgbArrayFree(GuetzliRgbArray* array) {
     delete array;
 }
 
-GuetzliImage* guetzliRgbArrayOptimize(GuetzliRgbArray* in, int quality) {
+GuetzliImage* guetzliRgbArrayProcess(GuetzliRgbArray* in, int quality) {
     std::vector<uint8_t> inData;
     std::string outData;
     inData.assign(in->data, in->data + (3 * in->width * in->height));

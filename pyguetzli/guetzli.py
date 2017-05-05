@@ -79,8 +79,7 @@ class GuetzliRgbArray(object):
 
 
 def read_file(path):
-    guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path),
-            GuetzliImage.TYPE_JPEG)  # FIXME
+    guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path))
 
     if not guetzli_image_p.length:
         raise IOError("Could not open the file")
@@ -91,13 +90,13 @@ def read_file(path):
 
 
 def image_optimize(image, quality=DEFAULT_JPEG_QUALITY):
-    opti_guetzli_imge_p = lib.guetzliImageOptimize(image._cdata, quality)
+    opti_guetzli_imge_p = lib.guetzliImageProcess(image._cdata, quality)
     opti_guetzli_imge_p_gc = ffi.gc(opti_guetzli_imge_p, lib.guetzliImageFree)
     return GuetzliImage.from_guetzli_image_p(opti_guetzli_imge_p_gc)
 
 
 def rgbarray_optimize(rgbarray, quality=DEFAULT_JPEG_QUALITY):
-    opti_guetzli_image_p = lib.guetzliRgbArrayOptimize(rgbarray._cdata, quality)
+    opti_guetzli_image_p = lib.guetzliRgbArrayProcess(rgbarray._cdata, quality)
     opti_guetzli_image_p_gc = ffi.gc(opti_guetzli_image_p, lib.guetzliRgbArrayFree)
     return GuetzliImage.from_guetzli_image_p(opti_guetzli_image_p_gc)
 
