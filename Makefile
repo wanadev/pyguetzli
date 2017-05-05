@@ -4,7 +4,7 @@ all: pyguetzli/_guetzli.so
 	cd ./guetzli && ${MAKE}
 
 pyguetzli/_guetzli.so: ./guetzli/bin/Release/libguetzli_static.a
-	python pyguetzli/guetzli_build.py
+	CPPFLAGS="--std=c++11" python pyguetzli/guetzli_build.py
 
 clean:
 	rm -f pyguetzli/*.so
