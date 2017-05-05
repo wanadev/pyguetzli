@@ -20,9 +20,9 @@ class GuetzliImage(object):
 
     _cdata = None
 
-    def __init__(self, bytes_, type_):
-        guetzli_image_p = lib.guetzliImageNew(type_, len(bytes_))
-        ffi.memmove(guetzli_image_p.data, bytes_, len(bytes_))
+    def __init__(self, data, type_):
+        guetzli_image_p = lib.guetzliImageNew(type_, len(data))
+        ffi.memmove(guetzli_image_p.data, data, len(data))
         guetzli_image_p_gc = ffi.gc(guetzli_image_p, lib.guetzliImageFree)
         self._cdata = guetzli_image_p_gc
 
@@ -78,7 +78,7 @@ class GuetzliRgbArray(object):
         return ffi.unpack(self._cdata.data, self.length)
 
 
-def read_file(path):
+def guetzli_image_read_file(path):
     guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path))
 
     if guetzli_image_p == ffi.NULL:
@@ -89,13 +89,13 @@ def read_file(path):
     return GuetzliImage.from_guetzli_image_p(guetzli_image_p_gc)
 
 
-def image_optimize(image, quality=DEFAULT_JPEG_QUALITY):
+def guetzli_image_process(image, quality=DEFAULT_JPEG_QUALITY):
     opti_guetzli_imge_p = lib.guetzliImageProcess(image._cdata, quality)
     opti_guetzli_imge_p_gc = ffi.gc(opti_guetzli_imge_p, lib.guetzliImageFree)
     return GuetzliImage.from_guetzli_image_p(opti_guetzli_imge_p_gc)
 
 
-def rgbarray_optimize(rgbarray, quality=DEFAULT_JPEG_QUALITY):
+def guetzli_rgb_array_process(rgbarray, quality=DEFAULT_JPEG_QUALITY):
     opti_guetzli_image_p = lib.guetzliRgbArrayProcess(rgbarray._cdata, quality)
     opti_guetzli_image_p_gc = ffi.gc(opti_guetzli_image_p, lib.guetzliRgbArrayFree)
     return GuetzliImage.from_guetzli_image_p(opti_guetzli_image_p_gc)
