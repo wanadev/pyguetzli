@@ -14,7 +14,7 @@ typedef struct {
 
 GuetzliImage* guetzliImageNew(GuetzliImageType type, int length);
 void guetzliImageFree(GuetzliImage* image);
-GuetzliImage* guetzliImageReadFile(const char* filename, GuetzliImageType type);
+GuetzliImage* guetzliImageReadFile(const char* filename);
 void guetzliImageWriteFile(const char* filename, GuetzliImage* image);
 GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality);
 

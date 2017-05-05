@@ -79,8 +79,7 @@ class GuetzliRgbArray(object):
 
 
 def read_file(path):
-    guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path),
-            GuetzliImage.TYPE_JPEG)  # FIXME
+    guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path))
 
     if not guetzli_image_p.length:
         raise IOError("Could not open the file")
