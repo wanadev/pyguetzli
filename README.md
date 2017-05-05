@@ -31,7 +31,86 @@ project's root directory:
 
 ## Using PyGuetzli
 
-TODO
+### Optimizing from a file
+
+```python
+import pyguetzli
+
+# Optimizing the image
+image = pyguetzli.process_image_from_file("image.jpg", quality=95)
+
+# Getting bytes of the optimized image
+image_bytes = image.to_bytes()
+print(image_bytes[:10])  # -> "\xFF\xD8\xFF\xE0\x00\x10JFIF"
+
+# Writing the optimized image
+image.save("optimized.jpg")
+```
+
+__NOTE__: Currently, only JPEG files are supported!
+
+
+### Optimizing from bytes
+
+```python
+import pyguetzli
+
+data = open("image.jpg", "rb").read()
+
+# Optimizing the image
+image = pyguetzli.process_image_from_bytes(data, quality=95)
+
+# Getting bytes of the optimized image
+image_bytes = image.to_bytes()
+print(image_bytes[:10])  # -> "\xFF\xD8\xFF\xE0\x00\x10JFIF"
+
+# Writing the optimized image
+image.save("optimized.jpg")
+```
+
+__NOTE__: Currently, only JPEG files are supported!
+
+
+### Optimizing from RGB bytes
+
+```python
+import pyguetzli
+
+# This is a 2x2 px image with a red, a green, a blue and a white pixels
+data = data = image_pixels = bytes(bytearray([
+    0xFF, 0x00, 0x00,   0x00, 0xFF, 0x00,
+    0x00, 0x00, 0xFF,   0xFF, 0xFF, 0xFF,
+    ]))
+
+# Generating an optimized JPEG image
+image = pyguetzli.process_rgb_bytes(data, quality=95)
+
+# Writing the optimized image
+image.save("optimized.jpg")
+```
+
+### Working with PIL / Pillow
+
+```python
+import pyguetzli
+from PIL import Image
+
+# PIL image
+image = Image.open("./test/image.png")
+
+# Getting bytes from the PIL image
+image_rgb_bytes = image.tobytes()
+
+# Generating an optimized JPEG from the bytes
+guetzli_image = pyguetzli.process_rgb_bytes(
+        image_rgb_bytes,
+        image.width,
+        image.height,
+        quality=95)
+
+# Saving the image
+guetzli_image.save("out.jpg")
+```
 
 
 ## Testing
