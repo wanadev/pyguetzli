@@ -14,7 +14,7 @@ class GuetzliImage(object):
 
     def __init__(self, bytes_, type_):
         guetzli_image_p = lib.guetzliImageNew(type_, len(bytes_))
-        guetzli_image_p.data = ffi.new("char[]", bytes_)
+        ffi.memmove(guetzli_image_p.data, bytes_, len(bytes_))
         guetzli_image_p_gc = ffi.gc(guetzli_image_p, lib.guetzliImageFree)
         self._cdata = guetzli_image_p_gc
 
