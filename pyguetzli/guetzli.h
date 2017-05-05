@@ -16,7 +16,7 @@ GuetzliImage* guetzliImageNew(GuetzliImageType type, int length);
 void guetzliImageFree(GuetzliImage* image);
 GuetzliImage* guetzliImageReadFile(const char* filename);
 void guetzliImageWriteFile(const char* filename, GuetzliImage* image);
-GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality);
+GuetzliImage* guetzliImageProcess(GuetzliImage* in, int quality);
 
 
 // GuetzliRgbArray
@@ -29,4 +29,4 @@ typedef struct {
 
 GuetzliRgbArray* guetzliRgbArrayNew(int width, int height);
 void guetzliRgbArrayFree(GuetzliRgbArray* array);
-GuetzliImage* guetzliRgbArrayOptimize(GuetzliRgbArray* in, int quality);
+GuetzliImage* guetzliRgbArrayProcess(GuetzliRgbArray* in, int quality);

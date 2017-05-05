@@ -51,7 +51,7 @@ void guetzliImageWriteFile(const char* filename, GuetzliImage* image) {
     outFile.write(image->data, image->length);
 }
 
-GuetzliImage* guetzliImageOptimize(GuetzliImage* in, int quality) {
+GuetzliImage* guetzliImageProcess(GuetzliImage* in, int quality) {
     if (in->type == GUETZLI_IMAGE_TYPE_UNKNOWN) {
         std::cerr << "Unknown image file format." << std::endl;
         return nullptr;
@@ -94,7 +94,7 @@ void guetzliRgbArrayFree(GuetzliRgbArray* array) {
     delete array;
 }
 
-GuetzliImage* guetzliRgbArrayOptimize(GuetzliRgbArray* in, int quality) {
+GuetzliImage* guetzliRgbArrayProcess(GuetzliRgbArray* in, int quality) {
     std::vector<uint8_t> inData;
     std::string outData;
     inData.assign(in->data, in->data + (3 * in->width * in->height));

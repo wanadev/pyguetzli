@@ -10,7 +10,7 @@ int main(void)
     GuetzliImage* image = guetzliImageReadFile("./test/image.jpg");
     assert(image->type == GUETZLI_IMAGE_TYPE_JPEG);
 
-    GuetzliImage* outImage = guetzliImageOptimize(image, 84);
+    GuetzliImage* outImage = guetzliImageProcess(image, 84);
 
     guetzliImageFree(image);
     guetzliImageFree(outImage);
@@ -28,7 +28,7 @@ int main(void)
         }
     }
 
-    outImage = guetzliRgbArrayOptimize(array, 84);
+    outImage = guetzliRgbArrayProcess(array, 84);
 
     guetzliRgbArrayFree(array);
     guetzliImageFree(outImage);
