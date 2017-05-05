@@ -15,5 +15,7 @@ def optimize_from_image_bytes(data, quality=guetzli.DEFAULT_JPEG_QUALITY):
 
 
 def optimize_from_rgb_bytes(data, width, height, quality=guetzli.DEFAULT_JPEG_QUALITY):
-    pass
+    rgb_array = guetzli.GuetzliRgbArray(data, width, height)
+    image_opti = guetzli.rgbarray_optimize(rgb_array, quality)
+    return image_opti
 

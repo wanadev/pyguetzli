@@ -13,3 +13,4 @@ README.rst
 *.a
 _*.cpp
 .cache
+test/test_guetzli
