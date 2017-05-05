@@ -1,7 +1,15 @@
-from _guetzli import lib, ffi
+import platform
+
+from ._guetzli import lib, ffi
 
 
 DEFAULT_JPEG_QUALITY = 95
+
+
+def _str_to_bytes(str):
+    if platform.python_version_tuple()[0] == "3":
+        return bytes(str, "utf-8")
+    return str
 
 
 class GuetzliImage(object):
@@ -71,7 +79,7 @@ class GuetzliRgbArray(object):
 
 
 def read_file(path):
-    guetzli_image_p = lib.guetzliImageReadFile(path,
+    guetzli_image_p = lib.guetzliImageReadFile(_str_to_bytes(path),
             GuetzliImage.TYPE_JPEG)  # FIXME
 
     if not guetzli_image_p.length:

@@ -14,7 +14,7 @@ JPEG_PIXEL_COUNT = JPEG_WIDTH * JPEG_HEIGHT
 class TestGuetzliImage(object):
 
     def setup(self):
-        self.img = guetzli.GuetzliImage(bytes("\x00\x01\x02\x03"), guetzli.GuetzliImage.TYPE_UNKNOWN)
+        self.img = guetzli.GuetzliImage(b"\x00\x01\x02\x03", guetzli.GuetzliImage.TYPE_UNKNOWN)
 
     def test_length(self):
         assert self.img.length == 4
@@ -23,7 +23,7 @@ class TestGuetzliImage(object):
         assert self.img.type == guetzli.GuetzliImage.TYPE_UNKNOWN
 
     def test_to_bytes(self):
-        assert self.img.to_bytes() == "\x00\x01\x02\x03"
+        assert self.img.to_bytes() == b"\x00\x01\x02\x03"
 
 
 def test_read_file_that_not_exists():
@@ -35,7 +35,7 @@ def test_read_file_jpeg():
     image = guetzli.read_file(JPEG_PATH)
     assert type(image) is guetzli.GuetzliImage
     assert image.length == JPEG_LENGTH
-    assert image.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
+    assert image.to_bytes().startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
 
 def test_image_optimize_jpeg():
@@ -43,7 +43,7 @@ def test_image_optimize_jpeg():
     image_opti = guetzli.image_optimize(image, 100)
     assert type(image) is guetzli.GuetzliImage
     assert image_opti.length < image.length
-    assert image_opti.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
+    assert image_opti.to_bytes().startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
 
 class TestGuetzliRgbArray(object):
