@@ -31,7 +31,6 @@ class TestGuetzliImageReadFile(object):
         with pytest.raises(IOError):
             image = guetzli.guetzli_image_read_file("this-file-do-not-exists")
 
-
     def test_jpeg_file(self):
         image = guetzli.guetzli_image_read_file(JPEG_PATH)
         assert type(image) is guetzli.GuetzliImage

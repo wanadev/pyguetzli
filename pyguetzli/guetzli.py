@@ -90,13 +90,13 @@ def guetzli_image_read_file(path):
 
 
 def guetzli_image_process(image, quality=DEFAULT_JPEG_QUALITY):
-    opti_guetzli_imge_p = lib.guetzliImageProcess(image._cdata, quality)
-    opti_guetzli_imge_p_gc = ffi.gc(opti_guetzli_imge_p, lib.guetzliImageFree)
-    return GuetzliImage.from_guetzli_image_p(opti_guetzli_imge_p_gc)
+    opti_guetzli_image_p = lib.guetzliImageProcess(image._cdata, quality)
+    opti_guetzli_image_p_gc = ffi.gc(opti_guetzli_image_p, lib.guetzliImageFree)
+    return GuetzliImage.from_guetzli_image_p(opti_guetzli_image_p_gc)
 
 
-def guetzli_rgb_array_process(rgbarray, quality=DEFAULT_JPEG_QUALITY):
-    opti_guetzli_image_p = lib.guetzliRgbArrayProcess(rgbarray._cdata, quality)
-    opti_guetzli_image_p_gc = ffi.gc(opti_guetzli_image_p, lib.guetzliRgbArrayFree)
+def guetzli_rgb_array_process(rgb_array, quality=DEFAULT_JPEG_QUALITY):
+    opti_guetzli_image_p = lib.guetzliRgbArrayProcess(rgb_array._cdata, quality)
+    opti_guetzli_image_p_gc = ffi.gc(opti_guetzli_image_p, lib.guetzliImageFree)
     return GuetzliImage.from_guetzli_image_p(opti_guetzli_image_p_gc)
 
