@@ -1,5 +1,4 @@
 import pytest
-from PIL import Image
 
 from pyguetzli import guetzli
 
@@ -49,7 +48,7 @@ def test_image_optimize_jpeg():
 class TestGuetzliRgbArray(object):
 
     def setup(self):
-        self.rgb = guetzli.GuetzliRgbArray(bytes("\x00\x01\x02\x0a\x0b\x0c"), 1, 2)
+        self.rgb = guetzli.GuetzliRgbArray(b"\x00\x01\x02\x0a\x0b\x0c", 1, 2)
 
     def test_width(self):
         assert self.rgb.width == 1
@@ -61,7 +60,7 @@ class TestGuetzliRgbArray(object):
         assert self.rgb.length == 6
 
     def test_to_bytes(self):
-        assert self.rgb.to_bytes() == "\x00\x01\x02\x0a\x0b\x0c"
+        assert self.rgb.to_bytes() == b"\x00\x01\x02\x0a\x0b\x0c"
 
 
 def test_rgb_array_new_with_uncoherent_values():
@@ -78,4 +77,4 @@ def test_rgb_array_optimize():
     image = guetzli.rgbarray_optimize(rgb_array)
     assert type(image) is guetzli.GuetzliImage
     assert image.length > 0
-    assert image.to_bytes().startswith("\xFF\xD8\xFF\xE0\x00\x10JFIF")
+    assert image.to_bytes().startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")

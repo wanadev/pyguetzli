@@ -46,7 +46,7 @@ class GuetzliImage(object):
         return ffi.unpack(self._cdata.data, self._cdata.length)
 
     def save(self, path):
-        lib.guetzliImageWriteFile(path, self._cdata)
+        lib.guetzliImageWriteFile(_str_to_bytes(path), self._cdata)
 
 
 class GuetzliRgbArray(object):
