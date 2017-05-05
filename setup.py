@@ -11,7 +11,7 @@ from setuptools.command.build_py import build_py
 class CustomBuildPy(build_py):
 
     def run(self):
-        subprocess.call("cd guetzli/ && make", shell=True)
+        subprocess.call("cd guetzli/ && make guetzli_static", shell=True)
         build_py.run(self)
 
 

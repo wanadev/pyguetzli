@@ -1,7 +1,7 @@
 all: pyguetzli/_guetzli.so
 
 ./guetzli/bin/Release/libguetzli_static.a: ./guetzli/Makefile
-	cd ./guetzli && ${MAKE}
+	cd ./guetzli && ${MAKE} guetzli_static
 
 pyguetzli/_guetzli.so: ./guetzli/bin/Release/libguetzli_static.a
 	CPPFLAGS="--std=c++11" python pyguetzli/guetzli_build.py
