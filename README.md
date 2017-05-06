@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/wanadev/pyguetzli.svg?branch=master)](https://travis-ci.org/wanadev/pyguetzli)
 [![PYPI Version](https://img.shields.io/pypi/v/pyguetzli.svg)](https://pypi.python.org/pypi/pyguetzli)
+[![License](https://img.shields.io/pypi/l/pyguetzli.svg)](https://github.com/wanadev/pyguetzli/blob/master/LICENSE)
 
 
 **PyGuetzli** is a Python bindings for Google's [Guetzli][guetzli].
