@@ -4,9 +4,9 @@
 [![PYPI Version](https://img.shields.io/pypi/v/pyguetzli.svg)](https://pypi.python.org/pypi/pyguetzli)
 
 
-**PyGuetzli** is a Python bindings for Google's [**Guetzli**][guetzli].
+**PyGuetzli** is a Python bindings for Google's [Guetzli][guetzli].
 
-Description of Guetzli from official's repo:
+Description of **Guetzli** from official's repo:
 
 > Guetzli is a JPEG encoder that aims for excellent compression density at high
 > visual quality. Guetzli-generated images are typically 20-30% smaller than
@@ -19,17 +19,28 @@ Description of Guetzli from official's repo:
 
 ## Building and Installing PyGuetzli
 
-In order to build Guetzli, GCC, GNU Make and libpng are required. On
-Debian / Ubuntu, this can be installed with the following command:
+In order to build Guetzli, GCC and GNU Make are required. On Debian / Ubuntu,
+this can be installed with the following command:
 
-    sudo apt-get install build-essential libpng-dev
+    sudo apt-get install build-essential
+
+
+### Installing from PYPI
+
+To install PyGuetzli from the PYPI package, just run the following command:
+
+    pip install pyguetzli
+
+__NOTE:__ a C++ compilator is still required.
 
 
 ### Installing from source
 
-To build and install PyGuetzli from source, run the following command from the
-project's root directory:
+To build and install PyGuetzli from source, clone the repository, and run the
+`pip install` command from the project's root directory:
 
+    git clone https://github.com/wanadev/pyguetzli.git
+    cd pyguetzli
     pip install .
 
 
@@ -51,7 +62,8 @@ print(image_bytes[:10])  # -> "\xFF\xD8\xFF\xE0\x00\x10JFIF"
 image.save("optimized.jpg")
 ```
 
-__NOTE__: Currently, only JPEG files are supported!
+__NOTE__: Only JPEG files are supported. See the "Working with PIL / Pillow"
+section below if you need to support other formats.
 
 
 ### Optimizing from bytes
@@ -72,10 +84,14 @@ print(image_bytes[:10])  # -> "\xFF\xD8\xFF\xE0\x00\x10JFIF"
 image.save("optimized.jpg")
 ```
 
-__NOTE__: Currently, only JPEG files are supported!
+__NOTE__: Only JPEG files are supported. See the "Working with PIL / Pillow"
+section below if you need to support other formats.
 
 
 ### Optimizing from RGB bytes
+
+This funciton allows you to generate an optimized JPEG from any decoded RGB
+image.
 
 ```python
 import pyguetzli
@@ -92,6 +108,7 @@ image = pyguetzli.process_rgb_bytes(data, quality=95)
 # Writing the optimized image
 image.save("optimized.jpg")
 ```
+
 
 ### Working with PIL / Pillow
 
@@ -116,9 +133,19 @@ guetzli_image = pyguetzli.process_rgb_bytes(
 guetzli_image.save("out.jpg")
 ```
 
+__WARNING:__ if you have an RGBA image, you **must** convert it to RGB first.
+See [this Stackoverflow thread][stackoverflow] for more informations.
+
+[stackoverflow]: http://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil?answertab=votes#tab-top
+
 
 ## Testing
 
     pip install cffi pytest
     python setup.py develop
     pytest
+
+
+## Changelog
+
+* **0.9.0**: Initial release
