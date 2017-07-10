@@ -14,3 +14,4 @@ README.rst
 _*.cpp
 .cache
 test/test_guetzli
+.tox
