@@ -42,6 +42,7 @@ class Test_process_rgb_bytes(object):
         assert type(optimized_jpeg_bytes) == type(b"")
         assert optimized_jpeg_bytes.startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
+    @pytest.mark.skip(reason="we need a larger image to be able to test this")
     def test_quality_param(self):
         optimized_jpeg_bytes_q100 = guetzli.process_rgb_bytes(self.rgb_bytes, 2, 2, 100)
         optimized_jpeg_bytes_q50 = guetzli.process_rgb_bytes(self.rgb_bytes, 2, 2, 50)

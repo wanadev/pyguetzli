@@ -13,7 +13,21 @@ def process_jpeg_bytes(bytes_in, quality=DEFAULT_JPEG_QUALITY):
     Keyword Arguments:
     quality -- the output JPEG quality (default 95)
     """
-    pass
+    bytes_out_p = ffi.new("char**")
+    bytes_out_p_gc = ffi.gc(bytes_out_p, lib.guetzli_free_bytes)
+
+    length = lib.guetzli_process_jpeg_bytes(
+            bytes_in,
+            len(bytes_in),
+            bytes_out_p_gc,
+            quality
+            )
+
+    if length == 0:
+        raise ValueError("Invalid JPEG: Guetzli was not able to decode the image")
+
+    bytes_out = ffi.cast("char*", bytes_out_p_gc[0])
+    return ffi.unpack(bytes_out, length)
 
 
 def process_rgb_bytes(bytes_in, width, height, quality=DEFAULT_JPEG_QUALITY):
@@ -27,5 +41,20 @@ def process_rgb_bytes(bytes_in, width, height, quality=DEFAULT_JPEG_QUALITY):
     Keyword Arguments:
     quality -- the output JPEG quality (default 95)
     """
-    pass
+    if len(bytes_in) != width * height * 3:
+        raise ValueError("bytes_in length is not coherent with given width and height")
+
+    bytes_out_p = ffi.new("char**")
+    bytes_out_p_gc = ffi.gc(bytes_out_p, lib.guetzli_free_bytes)
+
+    length = lib.guetzli_process_rgb_bytes(
+            bytes_in,
+            width,
+            height,
+            bytes_out_p_gc,
+            quality
+            )
+
+    bytes_out = ffi.cast("char*", bytes_out_p_gc[0])
+    return ffi.unpack(bytes_out, length)
 
