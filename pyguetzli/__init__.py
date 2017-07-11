@@ -4,7 +4,4 @@ from .guetzli import (
         process_rgb_bytes,
         )
 
-
-
-
-
+from .pil_image import process_pil_image
