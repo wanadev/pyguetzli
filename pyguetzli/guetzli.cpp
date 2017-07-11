@@ -1,12 +1,11 @@
-#include "guetzli.hpp"
+extern "C" {
+    #include "guetzli.h"
+}
 
 #include <guetzli/quality.h>
 #include <guetzli/processor.h>
 
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <cstring>
+#include <cstring>  // memcpy
 #include <vector>
 
 void guetzli_free_bytes(char** bytes) {
