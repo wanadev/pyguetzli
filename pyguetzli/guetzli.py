@@ -26,7 +26,7 @@ def process_jpeg_bytes(bytes_in, quality=DEFAULT_JPEG_QUALITY):
 
         import pyguetzli
 
-        input_jpeg_bytes = open("./test/image.jpg", "rb")
+        input_jpeg_bytes = open("./test/image.jpg", "rb").read()
         optimized_jpeg = pyguetzli.process_jpeg_bytes(input_jpeg_bytes)
     """
     bytes_out_p = ffi.new("char**")
