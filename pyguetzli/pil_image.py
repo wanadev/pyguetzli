@@ -1,3 +1,12 @@
+"""
+This modules contain helper function to deal with PIL / Pillow Images.
+
+.. note::
+    Please note that the ``[PIL]`` (pillow) extra dependency must be installed
+    to allow functions from this module to work.
+"""
+
+
 from . import guetzli
 
 
@@ -5,8 +14,12 @@ def _to_pil_rgb_image(image):
     """Returns an PIL Image converted to the RGB color space. If the image has
     an alpha channel (transparency), it will be overlaid on a black background.
 
-    Arguments:
-    image -- the PIL image
+    :param image: the PIL image to convert
+
+    :returns: The input image if it was already in RGB mode, or a new RGB image
+              if converted.
+
+    :raises ImportError: PIL / Pillow cannot be imported.
     """
     if image.mode == "RGB":
         return image
@@ -24,14 +37,21 @@ def process_pil_image(image, quality=guetzli.DEFAULT_JPEG_QUALITY):
     """Generates an optimized JPEG from a PIL image. If the image has an alpha
     channel (transparency), it will be overlaid on a black background.
 
-    Please note that the [PIL] (pillow) extra dependency must be installed to
-    allow this function to work.
+    :param image: the PIL image
+    :param quality: the output JPEG quality (default 95)
 
-    Arguments:
-    image -- the PIL image
+    :returns: Optimized JPEG bytes
+    :rtype: bytes
 
-    Keyword Arguments:
-    quality -- the output JPEG quality (default 95)
+    :raises ImportError: PIL / Pillow cannot be imported.
+
+    .. code:: python
+
+        import pyguetzli
+        from PIL import Image
+
+        image = Image.open("./test/image.jpg")
+        optimized_jpeg = pyguetzli.process_pil_image(image)
     """
     image_rgb = _to_pil_rgb_image(image)
     image_rgb_bytes = image_rgb.tobytes()

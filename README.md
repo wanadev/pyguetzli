@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/pypi/l/pyguetzli.svg)](https://github.com/wanadev/pyguetzli/blob/master/LICENSE)
 
 
-**PyGuetzli** is a Python bindings for Google's [Guetzli][guetzli].
+**PyGuetzli** is a Python binding for Google's [Guetzli][guetzli] library.
 
 Description of **Guetzli** from official's repo:
 
