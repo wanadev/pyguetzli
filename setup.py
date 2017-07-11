@@ -39,8 +39,12 @@ setup(
     packages=find_packages(),
 
     setup_requires=["cffi>=1.0.0"],
-    cffi_modules=["pyguetzli/guetzli_build.py:ffibuilder"],
     install_requires=["cffi>=1.0.0"],
+    extra_require = {
+        "PIL": ["pillow"]
+    },
+
+    cffi_modules=["pyguetzli/guetzli_build.py:ffibuilder"],
 
     cmdclass={
         "build_py": CustomBuildPy,

@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/pypi/l/pyguetzli.svg)](https://github.com/wanadev/pyguetzli/blob/master/LICENSE)
 
 
-**PyGuetzli** is a Python bindings for Google's [Guetzli][guetzli].
+**PyGuetzli** is a Python binding for Google's [Guetzli][guetzli] library.
 
 Description of **Guetzli** from official's repo:
 
@@ -32,9 +32,6 @@ To install PyGuetzli from the PYPI package, just run the following command:
 
     pip install pyguetzli
 
-__NOTE:__ a C++ compilator is still required.
-
-
 ### Installing from source
 
 To build and install PyGuetzli from source, clone the repository, and run the
@@ -47,104 +44,43 @@ To build and install PyGuetzli from source, clone the repository, and run the
 
 ## Using PyGuetzli
 
-### Optimizing from a file
+Example:
 
 ```python
 import pyguetzli
 
-# Optimizing the image
-image = pyguetzli.process_image_from_file("image.jpg", quality=95)
+input_jpeg = open("./test/image.jpg", "rb").read()
+optimized_jpeg = pyguetzli.process_jpeg_bytes(input_jpeg)
 
-# Getting bytes of the optimized image
-image_bytes = image.to_bytes()
-print(image_bytes[:10])  # -> "\xFF\xD8\xFF\xE0\x00\x10JFIF"
-
-# Writing the optimized image
-image.save("optimized.jpg")
+output = open("./optimized.jpg", "wb")
+output.write(optimized_jpeg)
 ```
 
-__NOTE__: Only JPEG files are supported. See the "Working with PIL / Pillow"
-section below if you need to support other formats.
+For more information, please visit the project's documentation:
+
+* http://wanadev.github.io/pyguetzli/
 
 
-### Optimizing from bytes
+## Hacking
 
-```python
-import pyguetzli
+### Running Tests
 
-data = open("image.jpg", "rb").read()
+    pip install tox
+    tox
 
-# Optimizing the image
-image = pyguetzli.process_image_from_bytes(data, quality=95)
+By default test will run in Python 2.7, 3.5 and 3.6. To run only on a specific
+Python version run the following commands:
 
-# Getting bytes of the optimized image
-image_bytes = image.to_bytes()
-print(image_bytes[:10])  # -> "\xFF\xD8\xFF\xE0\x00\x10JFIF"
+    tox -e py27
+    tox -e py35
+    tox -e py36
 
-# Writing the optimized image
-image.save("optimized.jpg")
-```
+### Generating Documentation
 
-__NOTE__: Only JPEG files are supported. See the "Working with PIL / Pillow"
-section below if you need to support other formats.
+From a virtualenv:
 
-
-### Optimizing from RGB bytes
-
-This funciton allows you to generate an optimized JPEG from any decoded RGB
-image.
-
-```python
-import pyguetzli
-
-# This is a 2x2 px image with a red, a green, a blue and a white pixels
-data = data = image_pixels = bytes(bytearray([
-    0xFF, 0x00, 0x00,   0x00, 0xFF, 0x00,
-    0x00, 0x00, 0xFF,   0xFF, 0xFF, 0xFF,
-    ]))
-
-# Generating an optimized JPEG image
-image = pyguetzli.process_rgb_bytes(data, quality=95)
-
-# Writing the optimized image
-image.save("optimized.jpg")
-```
-
-
-### Working with PIL / Pillow
-
-```python
-import pyguetzli
-from PIL import Image
-
-# PIL image
-image = Image.open("./test/image.png")
-
-# Getting bytes from the PIL image
-image_rgb_bytes = image.tobytes()
-
-# Generating an optimized JPEG from the bytes
-guetzli_image = pyguetzli.process_rgb_bytes(
-        image_rgb_bytes,
-        image.width,
-        image.height,
-        quality=95)
-
-# Saving the image
-guetzli_image.save("out.jpg")
-```
-
-__WARNING:__ if you have an RGBA image, you **must** convert it to RGB first.
-See [this Stackoverflow thread][stackoverflow] for more informations.
-
-[stackoverflow]: http://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil?answertab=votes#tab-top
-
-
-## Testing
-
-    pip install cffi pytest
-    python setup.py develop
-    pytest
+    pip install -r requirements.txt
+    python setup.py build_sphinx
 
 
 ## Changelog

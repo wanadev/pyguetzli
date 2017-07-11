@@ -4,6 +4,7 @@ python:
     - "2.7"
     - "3.4"
     - "3.5"
+    - "3.6"
     - "nightly"
 
 dist: trusty
@@ -14,12 +15,13 @@ env: CPPFLAGS="--std=c++11"
 addons:
   apt:
     packages:
-    - libpng-dev
     - build-essential
 
 install:
-    - pip install pytest
+    - pip install -r requirements.txt
     - pip install .
 
-script: pytest -v
+script:
+    - flake8 pyguetzli test
+    - pytest -v
 

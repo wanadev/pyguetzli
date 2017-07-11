@@ -1,32 +1,10 @@
-// GuetzliImage
+// Guetzli image
 
-typedef enum {
-    GUETZLI_IMAGE_TYPE_UNKNOWN,
-    GUETZLI_IMAGE_TYPE_JPEG,
-    GUETZLI_IMAGE_TYPE_PNG,
-} GuetzliImageType;
+// Frees allocated bytes.
+void guetzli_free_bytes(char** bytes);
 
-typedef struct {
-    char* data;
-    int length;
-    GuetzliImageType type;
-} GuetzliImage;
+// Returns *bytes_out length.
+int guetzli_process_jpeg_bytes(char* bytes_in, int length_in, char** bytes_out, int quality);
 
-GuetzliImage* guetzliImageNew(GuetzliImageType type, int length);
-void guetzliImageFree(GuetzliImage* image);
-GuetzliImage* guetzliImageReadFile(const char* filename);
-void guetzliImageWriteFile(const char* filename, GuetzliImage* image);
-GuetzliImage* guetzliImageProcess(GuetzliImage* in, int quality);
-
-
-// GuetzliRgbArray
-
-typedef struct {
-    char* data;
-    int width;
-    int height;
-} GuetzliRgbArray;
-
-GuetzliRgbArray* guetzliRgbArrayNew(int width, int height);
-void guetzliRgbArrayFree(GuetzliRgbArray* array);
-GuetzliImage* guetzliRgbArrayProcess(GuetzliRgbArray* in, int quality);
+// Returns *bytes_out length.
+int guetzli_process_rgb_bytes(char* bytes_in, int width, int height, char** bytes_out, int quality);
