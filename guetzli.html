@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Guetzli &mdash; pyguetzli 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="pyguetzli 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="PIL / Pillow Image" href="pil_image.html"/>
+        <link rel="prev" title="Installation" href="install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyguetzli
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guetzli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pil_image.html">PIL / Pillow Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences.html">Differences With Original Guetzli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyguetzli</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Guetzli</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/guetzli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyguetzli.guetzli">
+<span id="guetzli"></span><h1>Guetzli<a class="headerlink" href="#module-pyguetzli.guetzli" title="Permalink to this headline">¶</a></h1>
+<p>This module contains functions binded from the Guetzli C++ API.</p>
+<dl class="data">
+<dt id="pyguetzli.guetzli.DEFAULT_JPEG_QUALITY">
+<code class="descclassname">pyguetzli.guetzli.</code><code class="descname">DEFAULT_JPEG_QUALITY</code><em class="property"> = 95</em><a class="headerlink" href="#pyguetzli.guetzli.DEFAULT_JPEG_QUALITY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default quality for outputted JPEGs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyguetzli.guetzli.process_jpeg_bytes">
+<code class="descclassname">pyguetzli.guetzli.</code><code class="descname">process_jpeg_bytes</code><span class="sig-paren">(</span><em>bytes_in</em>, <em>quality=95</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_jpeg_bytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyguetzli.guetzli.process_jpeg_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an optimized JPEG from JPEG-encoded bytes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bytes_in</strong> – the input image’s bytes</li>
+<li><strong>quality</strong> – the output JPEG quality (default 95)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Optimized JPEG bytes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">bytes</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>ValueError</strong> – Guetzli was not able to decode the image (the image is
+probably corrupted or is not a JPEG)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyguetzli</span>
+
+<span class="n">input_jpeg_bytes</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./test/image.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_jpeg_bytes</span><span class="p">(</span><span class="n">input_jpeg_bytes</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyguetzli.guetzli.process_rgb_bytes">
+<code class="descclassname">pyguetzli.guetzli.</code><code class="descname">process_rgb_bytes</code><span class="sig-paren">(</span><em>bytes_in</em>, <em>width</em>, <em>height</em>, <em>quality=95</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_rgb_bytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyguetzli.guetzli.process_rgb_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an optimized JPEG from RGB bytes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bytes_in</strong> (<em>bytes</em>) – the input image’s bytes</li>
+<li><strong>width</strong> (<em>int</em>) – the width of the input image</li>
+<li><strong>height</strong> (<em>int</em>) – the height of the input image</li>
+<li><strong>quality</strong> (<em>int</em>) – the output JPEG quality (default 95)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Optimized JPEG bytes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">bytes</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>ValueError</strong> – the given width and height is not coherent with the
+<code class="docutils literal"><span class="pre">bytes_in</span></code> length.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyguetzli</span>
+
+<span class="c1"># 2x2px RGB image</span>
+<span class="c1">#                |    red    |   green   |</span>
+<span class="n">image_pixels</span>  <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\x00\x00\x00\xFF\x00</span><span class="s2">&quot;</span>
+<span class="n">image_pixels</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\xFF\xFF\xFF\xFF</span><span class="s2">&quot;</span>
+<span class="c1">#                |   blue    |   white   |</span>
+
+<span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_rgb_bytes</span><span class="p">(</span><span class="n">image_pixels</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pil_image.html" class="btn btn-neutral float-right" title="PIL / Pillow Image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Wanadev.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
