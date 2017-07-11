@@ -11,9 +11,6 @@ Description of **Guetzli** from official's repo:
     only sequential (nonprogressive) JPEGs due to faster decompression speeds
     they offer.
 
-
-.. _guetzli: https://github.com/google/guetzli
-
 .. toctree::
     :maxdepth: 2
     :caption: Contents:
@@ -27,3 +24,17 @@ Description of **Guetzli** from official's repo:
 * :ref:`genindex`
 * :ref:`modindex`
 
+
+|Github| |Build Status| |PYPI Version| |License|
+
+
+.. |Github| image:: https://img.shields.io/badge/Github-wanadev%2Fpyguetzli-blue.svg
+   :target: https://github.com/wanadev/pyguetzli
+.. |Build Status| image:: https://travis-ci.org/wanadev/pyguetzli.svg?branch=master
+   :target: https://travis-ci.org/wanadev/pyguetzli
+.. |PYPI Version| image:: https://img.shields.io/pypi/v/pyguetzli.svg
+   :target: https://pypi.python.org/pypi/pyguetzli
+.. |License| image:: https://img.shields.io/pypi/l/pyguetzli.svg
+   :target: https://github.com/wanadev/pyguetzli/blob/master/LICENSE
+
+.. _guetzli: https://github.com/google/guetzli
