@@ -11,7 +11,8 @@ from setuptools.command.build_py import build_py
 class CustomBuildPy(build_py):
 
     def run(self):
-        subprocess.call("CPPFLAGS='--std=c++11' cd guetzli/ && make guetzli_static", shell=True)
+        os.environ["CPPFLAGS"] = "--std=c++11"
+        subprocess.call("cd guetzli/ && make guetzli_static", shell=True)
         build_py.run(self)
 
 
