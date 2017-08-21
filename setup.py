@@ -11,7 +11,7 @@ from setuptools.command.build_py import build_py
 class CustomBuildPy(build_py):
 
     def run(self):
-        subprocess.call("cd guetzli/ && make guetzli_static", shell=True)
+        subprocess.call("CPPFLAGS='--std=c++11' cd guetzli/ && make guetzli_static", shell=True)
         build_py.run(self)
 
 
@@ -40,7 +40,7 @@ setup(
 
     setup_requires=["cffi>=1.0.0"],
     install_requires=["cffi>=1.0.0"],
-    extra_require = {
+    extra_require={
         "PIL": ["pillow"]
     },
 
@@ -50,4 +50,3 @@ setup(
         "build_py": CustomBuildPy,
     },
 )
-
