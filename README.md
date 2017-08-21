@@ -113,6 +113,7 @@ From a virtualenv:
 
 ## Changelog
 
+* **1.0.1**: Adds `--std=c++11` flag when building Guetzli
 * **1.0.0**:
     * New and simpler API
     * Built-in function to deal with PIL / Pillow Images
