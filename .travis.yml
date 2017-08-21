@@ -10,8 +10,6 @@ python:
 dist: trusty
 sudo: required
 
-env: CPPFLAGS="--std=c++11"
-
 addons:
   apt:
     packages:
