@@ -113,6 +113,8 @@ From a virtualenv:
 
 ## Changelog
 
+* **1.0.2**: PIL Images: fixes crash with non RGB/RGBA images (grayscale,
+  indexed,...)
 * **1.0.1**: Adds `--std=c++11` flag when building Guetzli
 * **1.0.0**:
     * New and simpler API
