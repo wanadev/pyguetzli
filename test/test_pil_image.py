@@ -13,6 +13,30 @@ class Test_process_pil_image(object):
         assert isinstance(optimized_jpeg_bytes, bytes)
         assert optimized_jpeg_bytes.startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
 
+    def test_pil_image_from_rgb_png(self):
+        image = Image.open("./test/rgb.png")
+        optimized_jpeg_bytes = pil_image.process_pil_image(image)
+        assert isinstance(optimized_jpeg_bytes, bytes)
+        assert optimized_jpeg_bytes.startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
+
+    def test_pil_image_from_rgba_png(self):
+        image = Image.open("./test/rgba.png")
+        optimized_jpeg_bytes = pil_image.process_pil_image(image)
+        assert isinstance(optimized_jpeg_bytes, bytes)
+        assert optimized_jpeg_bytes.startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
+
+    def test_pil_image_from_grayscale_png(self):
+        image = Image.open("./test/grayscale.png")
+        optimized_jpeg_bytes = pil_image.process_pil_image(image)
+        assert isinstance(optimized_jpeg_bytes, bytes)
+        assert optimized_jpeg_bytes.startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
+
+    def test_pil_image_from_indexed_png(self):
+        image = Image.open("./test/indexed.png")
+        optimized_jpeg_bytes = pil_image.process_pil_image(image)
+        assert isinstance(optimized_jpeg_bytes, bytes)
+        assert optimized_jpeg_bytes.startswith(b"\xFF\xD8\xFF\xE0\x00\x10JFIF")
+
     def test_quality_param(self):
         optimized_jpeg_bytes_q100 = pil_image.process_pil_image(
                 self.pil_image, 100)
