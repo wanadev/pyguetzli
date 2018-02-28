@@ -113,6 +113,7 @@ From a virtualenv:
 
 ## Changelog
 
+* **1.0.4:** MS Windows support
 * **1.0.3:** Updates Guetzli library
 * **1.0.2**: PIL Images: fixes crash with non RGB/RGBA images (grayscale,
   indexed,...)

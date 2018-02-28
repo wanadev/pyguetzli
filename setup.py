@@ -59,7 +59,7 @@ elif os.path.isfile("README.md"):
 
 setup(
     name="pyguetzli",
-    version="1.0.3",
+    version="1.0.4",
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",
     url="https://github.com/wanadev/pyguetzli",
     license="Apache-2.0",
