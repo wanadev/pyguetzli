@@ -14,6 +14,7 @@ class CustomBuildPy(build_py):
         extra_cc_args = []
 
         if ccompiler.get_default_compiler() == "unix":
+            os.environ["CXXFLAGS"] = "--std=c++11"
             extra_cc_args = ["-fPIC", "--std=c++11"]
 
         compiler = ccompiler.new_compiler()
