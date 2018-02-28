@@ -11,7 +11,10 @@ from setuptools.command.build_py import build_py
 class CustomBuildPy(build_py):
 
     def run(self):
-        os.environ["CPPFLAGS"] = "--std=c++11"
+        extra_cc_args = []
+
+        if ccompiler.get_default_compiler() == "unix":
+            extra_cc_args = ["-fPIC", "--std=c++11"]
 
         compiler = ccompiler.new_compiler()
         compiler.set_include_dirs([
@@ -39,7 +42,8 @@ class CustomBuildPy(build_py):
             "guetzli/guetzli/quantize.cc",
             "guetzli/guetzli/score.cc",
             "guetzli/third_party/butteraugli/butteraugli/butteraugli.cc",
-            ])
+            ],
+            extra_preargs=extra_cc_args)
         compiler.create_static_lib(objects, "guetzli", output_dir="guetzli")
 
         build_py.run(self)
