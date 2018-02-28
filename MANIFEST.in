@@ -14,6 +14,7 @@ include guetzli/guetzli.make
 include guetzli/fuzz_target.cc
 include guetzli/premake5.lua
 include guetzli/LICENSE
+include guetzli/guetzli.sln
 include guetzli/Makefile
 include guetzli/README.md
 include guetzli/guetzli/entropy_encode.cc
@@ -62,5 +63,9 @@ include guetzli/guetzli/jpeg_data.cc
 include guetzli/guetzli/dct_double.h
 include guetzli/guetzli/debug_print.cc
 include guetzli/guetzli/gamma_correct.h
+include guetzli/guetzli.vcxproj.filters
 include guetzli/CONTRIBUTING.md
+include guetzli/guetzli_static.vcxproj.filters
+include guetzli/guetzli_static.vcxproj
 include guetzli/guetzli_static.make
+include guetzli/guetzli.vcxproj
