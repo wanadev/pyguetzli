@@ -2,7 +2,7 @@
 # encoding: UTF-8
 
 import os
-import subprocess
+from distutils import ccompiler
 
 from setuptools import setup, find_packages
 from setuptools.command.build_py import build_py
@@ -12,7 +12,36 @@ class CustomBuildPy(build_py):
 
     def run(self):
         os.environ["CPPFLAGS"] = "--std=c++11"
-        subprocess.call("cd guetzli/ && make guetzli_static", shell=True)
+
+        compiler = ccompiler.new_compiler()
+        compiler.set_include_dirs([
+            "guetzli/",
+            "guetzli/third_party/butteraugli/",
+            ])
+        objects = compiler.compile([
+            "guetzli/guetzli/butteraugli_comparator.cc",
+            "guetzli/guetzli/dct_double.cc",
+            "guetzli/guetzli/debug_print.cc",
+            "guetzli/guetzli/entropy_encode.cc",
+            "guetzli/guetzli/fdct.cc",
+            "guetzli/guetzli/gamma_correct.cc",
+            "guetzli/guetzli/idct.cc",
+            "guetzli/guetzli/jpeg_data.cc",
+            "guetzli/guetzli/jpeg_data_decoder.cc",
+            "guetzli/guetzli/jpeg_data_encoder.cc",
+            "guetzli/guetzli/jpeg_data_reader.cc",
+            "guetzli/guetzli/jpeg_data_writer.cc",
+            "guetzli/guetzli/jpeg_huffman_decode.cc",
+            "guetzli/guetzli/output_image.cc",
+            "guetzli/guetzli/preprocess_downsample.cc",
+            "guetzli/guetzli/processor.cc",
+            "guetzli/guetzli/quality.cc",
+            "guetzli/guetzli/quantize.cc",
+            "guetzli/guetzli/score.cc",
+            "guetzli/third_party/butteraugli/butteraugli/butteraugli.cc",
+            ])
+        compiler.create_static_lib(objects, "guetzli", output_dir="guetzli")
+
         build_py.run(self)
 
 
