@@ -15,7 +15,10 @@ class CustomBuildPy(build_py):
 
         if ccompiler.get_default_compiler() == "unix":
             os.environ["CPPFLAGS"] = "--std=c++11"
-            extra_cc_args = ["-fPIC", "--std=c++11"]
+            extra_cc_args = ["-fPIC", "--std=c++11" "-O3"]
+
+        if ccompiler.get_default_compiler() == "msvc":
+            extra_cc_args = ["/O2"]
 
         compiler = ccompiler.new_compiler()
         compiler.set_include_dirs([
