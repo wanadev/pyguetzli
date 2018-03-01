@@ -15,7 +15,7 @@ class CustomBuildPy(build_py):
 
         if ccompiler.get_default_compiler() == "unix":
             os.environ["CPPFLAGS"] = "--std=c++11"
-            extra_cc_args = ["-fPIC", "--std=c++11" "-O3"]
+            extra_cc_args = ["-fPIC", "--std=c++11", "-O3"]
 
         if ccompiler.get_default_compiler() == "msvc":
             extra_cc_args = ["/O2"]
@@ -62,7 +62,7 @@ elif os.path.isfile("README.md"):
 
 setup(
     name="pyguetzli",
-    version="1.0.5",
+    version="1.0.6",
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",
     url="https://github.com/wanadev/pyguetzli",
     license="Apache-2.0",
