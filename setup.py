@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: UTF-8
 
+import io
 import os
 from distutils import ccompiler
 
@@ -52,13 +53,13 @@ class CustomBuildPy(build_py):
 
         build_py.run(self)
 
-
 long_description = ""
-if os.path.isfile("README.rst"):
-    long_description = open("README.rst", "r").read()
-elif os.path.isfile("README.md"):
-    long_description = open("README.md", "r").read()
+for readme_filename in ("README.rst", "README.md"):
+    if os.path.isfile(readme_filename):
+        with io.open(readme_filename, "r", encoding="utf-8") as f:
+            long_description = f.read()
 
+        break
 
 setup(
     name="pyguetzli",
