@@ -113,6 +113,7 @@ From a virtualenv:
 
 ## Changelog
 
+* **1.0.7:** Fixes unicode issue when installing pyguetzli (#4)
 * **1.0.6:** Fixes a typo in compilator options on unix
 * **1.0.5:** Adds optimization flags when compiling Guetzli
 * **1.0.4:** MS Windows support
