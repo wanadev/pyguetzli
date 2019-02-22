@@ -53,6 +53,7 @@ class CustomBuildPy(build_py):
 
         build_py.run(self)
 
+
 long_description = ""
 for readme_filename in ("README.rst", "README.md"):
     if os.path.isfile(readme_filename):
@@ -64,7 +65,7 @@ for readme_filename in ("README.rst", "README.md"):
 setup(
     name="pyguetzli",
     version="1.0.7",
-    description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",
+    description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",  # noqa
     url="https://github.com/wanadev/pyguetzli",
     license="Apache-2.0",
 
@@ -79,8 +80,14 @@ setup(
 
     setup_requires=["cffi>=1.0.0"],
     install_requires=["cffi>=1.0.0"],
-    extra_require={
-        "PIL": ["pillow"]
+    extras_require={
+        "PIL": ["pillow"],
+        "dev": [
+            "flake8",
+            "Sphinx",
+            "sphinx-rtd-theme",
+            "pytest",
+        ],
     },
 
     cffi_modules=["pyguetzli/guetzli_build.py:ffibuilder"],

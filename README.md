@@ -91,6 +91,10 @@ information.
 
 ## Hacking
 
+### Installing Dependencies For Development
+
+    pip install -e .[PIL,dev]
+
 ### Running Tests
 
     pip install tox
@@ -100,14 +104,13 @@ By default test will run in Python 2.7, 3.5 and 3.6. To run only on a specific
 Python version run the following commands:
 
     tox -e py27
-    tox -e py35
     tox -e py36
 
 ### Generating Documentation
 
 From a virtualenv:
 
-    pip install -r requirements.txt
+    pip install -e .[dev]
     python setup.py build_sphinx
 
 
