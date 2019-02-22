@@ -16,8 +16,7 @@ addons:
     - build-essential
 
 install:
-    - pip install -r requirements.txt
-    - pip install .
+    - pip install .[PIL,dev]
 
 script:
     - flake8 pyguetzli test
