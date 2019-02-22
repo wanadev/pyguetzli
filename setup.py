@@ -64,7 +64,7 @@ for readme_filename in ("README.rst", "README.md"):
 
 setup(
     name="pyguetzli",
-    version="1.0.7",
+    version="1.0.8",
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",  # noqa
     url="https://github.com/wanadev/pyguetzli",
     license="Apache-2.0",
