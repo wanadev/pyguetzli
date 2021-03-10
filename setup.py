@@ -83,6 +83,7 @@ setup(
     extras_require={
         "PIL": ["pillow"],
         "dev": [
+            "nox",
             "flake8",
             "Sphinx",
             "sphinx-rtd-theme",

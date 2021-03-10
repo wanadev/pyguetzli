@@ -97,14 +97,26 @@ information.
 
 ### Running Tests
 
-    pip install tox
-    tox
+First install nox:
 
-By default test will run in Python 2.7, 3.5 and 3.6. To run only on a specific
-Python version run the following commands:
+    pip install nox
 
-    tox -e py27
-    tox -e py36
+Then you can run linting with:
+
+    nox -s lint
+
+And you can run tests with:
+
+    nox -s test
+
+If you want to test only a specific Python version, use one of the following
+commands (the corresponding Python interpreter must be available on the
+machine):
+
+    nox -s test-2.7
+    nox -s test-3.7
+    nox -s test-3.8
+    nox -s test-3.9
 
 ### Generating Documentation
 
