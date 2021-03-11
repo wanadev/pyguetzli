@@ -35,6 +35,8 @@ Example Usage
     guetzli
     pil_image
     differences
+    trouble-shooting
+    contributing
     license
 
 * :ref:`genindex`
