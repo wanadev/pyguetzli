@@ -35,7 +35,7 @@ Description of **Guetzli** from official's repo:
    :target: https://discord.gg/BmUkEdMuFp
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/pyguetzli.svg
    :target: https://pypi.python.org/pypi/pyguetzli
-.. |Build Status| image:: https://github.com/wanadev/pyguetzli/workflows/Python%20CI/badge.svg
+.. |Build Status| image:: https://github.com/wanadev/pyguetzli/actions/workflows/python-ci.yml/badge.svg
    :target: https://github.com/wanadev/pyguetzli/actions
 .. |License| image:: https://img.shields.io/pypi/l/pyguetzli.svg
    :target: https://github.com/wanadev/pyguetzli/blob/master/LICENSE
