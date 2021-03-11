@@ -1,7 +1,7 @@
 PyGuetzli
 =========
 
-|PYPI Version| |License|
+|Github| |Discord| |PYPI Version| |Build Status| |License|
 
 **PyGuetzli** is a Python binding for Google’s
 `Guetzli <https://github.com/google/guetzli>`__ library.
@@ -163,7 +163,14 @@ Changelog
 
 * **0.9.0**: Initial release
 
+
+.. |Github| image:: https://img.shields.io/github/stars/wanadev/pyguetzli?label=Github&logo=github
+   :target: https://github.com/wanadev/pyguetzli
+.. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
+   :target: https://discord.gg/BmUkEdMuFp
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/pyguetzli.svg
    :target: https://pypi.python.org/pypi/pyguetzli
+.. |Build Status| image:: https://github.com/wanadev/pyguetzli/workflows/Python%20CI/badge.svg
+   :target: https://github.com/wanadev/pyguetzli/actions
 .. |License| image:: https://img.shields.io/pypi/l/pyguetzli.svg
    :target: https://github.com/wanadev/pyguetzli/blob/master/LICENSE

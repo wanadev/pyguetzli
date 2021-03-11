@@ -1,6 +1,8 @@
 Welcome to pyguetzli's documentation!
 =====================================
 
+|Github| |Discord| |PYPI Version| |Build Status| |License|
+
 PyGuetzli is a Python binding for Google's Guetzli_ library.
 
 Description of **Guetzli** from official's repo:
@@ -24,17 +26,16 @@ Description of **Guetzli** from official's repo:
 * :ref:`genindex`
 * :ref:`modindex`
 
+.. _guetzli: https://github.com/google/guetzli
 
-|Github| |Build Status| |PYPI Version| |License|
 
-
-.. |Github| image:: https://img.shields.io/badge/Github-wanadev%2Fpyguetzli-blue.svg
+.. |Github| image:: https://img.shields.io/github/stars/wanadev/pyguetzli?label=Github&logo=github
    :target: https://github.com/wanadev/pyguetzli
-.. |Build Status| image:: https://travis-ci.org/wanadev/pyguetzli.svg?branch=master
-   :target: https://travis-ci.org/wanadev/pyguetzli
+.. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
+   :target: https://discord.gg/BmUkEdMuFp
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/pyguetzli.svg
    :target: https://pypi.python.org/pypi/pyguetzli
+.. |Build Status| image:: https://github.com/wanadev/pyguetzli/workflows/Python%20CI/badge.svg
+   :target: https://github.com/wanadev/pyguetzli/actions
 .. |License| image:: https://img.shields.io/pypi/l/pyguetzli.svg
    :target: https://github.com/wanadev/pyguetzli/blob/master/LICENSE
-
-.. _guetzli: https://github.com/google/guetzli
