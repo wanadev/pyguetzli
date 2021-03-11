@@ -164,8 +164,82 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="guetzli-python-module">
-<h1>Guetzli Python Module<a class="headerlink" href="#guetzli-python-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pyguetzli.guetzli">
+<span id="guetzli-python-module"></span><h1>Guetzli Python Module<a class="headerlink" href="#module-pyguetzli.guetzli" title="Permalink to this headline">¶</a></h1>
+<p>This module contains functions binded from the Guetzli C++ API.</p>
+<dl class="py data">
+<dt id="pyguetzli.guetzli.DEFAULT_JPEG_QUALITY">
+<code class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></code><code class="sig-name descname"><span class="pre">DEFAULT_JPEG_QUALITY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">95</span></em><a class="headerlink" href="#pyguetzli.guetzli.DEFAULT_JPEG_QUALITY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default quality for outputted JPEGs</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyguetzli.guetzli.process_jpeg_bytes">
+<code class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></code><code class="sig-name descname"><span class="pre">process_jpeg_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_jpeg_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.guetzli.process_jpeg_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an optimized JPEG from JPEG-encoded bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bytes_in</strong> – the input image’s bytes</p></li>
+<li><p><strong>quality</strong> – the output JPEG quality (default 95)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Optimized JPEG bytes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Guetzli was not able to decode the image (the image is
+probably corrupted or is not a JPEG)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyguetzli</span>
+
+<span class="n">input_jpeg_bytes</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./test/image.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_jpeg_bytes</span><span class="p">(</span><span class="n">input_jpeg_bytes</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyguetzli.guetzli.process_rgb_bytes">
+<code class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></code><code class="sig-name descname"><span class="pre">process_rgb_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_rgb_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.guetzli.process_rgb_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an optimized JPEG from RGB bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bytes_in</strong> (<em>bytes</em>) – the input image’s bytes</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – the width of the input image</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – the height of the input image</p></li>
+<li><p><strong>quality</strong> (<em>int</em>) – the output JPEG quality (default 95)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Optimized JPEG bytes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – the given width and height is not coherent with the
+<code class="docutils literal notranslate"><span class="pre">bytes_in</span></code> length.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyguetzli</span>
+
+<span class="c1"># 2x2px RGB image</span>
+<span class="c1">#                |    red    |   green   |</span>
+<span class="n">image_pixels</span>  <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\x00\x00\x00\xFF\x00</span><span class="s2">&quot;</span>
+<span class="n">image_pixels</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\xFF\xFF\xFF\xFF</span><span class="s2">&quot;</span>
+<span class="c1">#                |   blue    |   white   |</span>
+
+<span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_rgb_bytes</span><span class="p">(</span><span class="n">image_pixels</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 

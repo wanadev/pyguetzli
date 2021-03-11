@@ -164,8 +164,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pil-pillow-image">
-<h1>PIL / Pillow Image<a class="headerlink" href="#pil-pillow-image" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pyguetzli.pil_image">
+<span id="pil-pillow-image"></span><h1>PIL / Pillow Image<a class="headerlink" href="#module-pyguetzli.pil_image" title="Permalink to this headline">¶</a></h1>
+<p>This modules contain helper function to deal with PIL / Pillow Images.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that the <code class="docutils literal notranslate"><span class="pre">[PIL]</span></code> (pillow) extra dependency must be installed
+to allow functions from this module to work.</p>
+</div>
+<dl class="py function">
+<dt id="pyguetzli.pil_image.process_pil_image">
+<code class="sig-prename descclassname"><span class="pre">pyguetzli.pil_image.</span></code><code class="sig-name descname"><span class="pre">process_pil_image</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/pil_image.html#process_pil_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.pil_image.process_pil_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an optimized JPEG from a PIL image. If the image has an alpha
+channel (transparency), it will be overlaid on a black background.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – the PIL image</p></li>
+<li><p><strong>quality</strong> – the output JPEG quality (default 95)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Optimized JPEG bytes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ImportError</strong> – PIL / Pillow cannot be imported.</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyguetzli</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./test/image.jpg&quot;</span><span class="p">)</span>
+<span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_pil_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 
