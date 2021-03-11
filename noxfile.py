@@ -12,3 +12,9 @@ def test(session):
     session.install("pytest")
     session.install(".[PIL]")
     session.run("pytest", "-v", "test")
+
+
+@nox.session
+def gendoc(session):
+    session.install(".[dev]")
+    session.run("python", "setup.py", "build_sphinx")

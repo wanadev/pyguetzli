@@ -133,10 +133,13 @@ available on the machine)::
 Generating Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-From a virtualenv::
+First install nox::
 
-   pip install -e .[dev]
-   python setup.py build_sphinx
+   pip install nox
+
+Then run the folloing command::
+
+   nox -s gendoc
 
 
 Changelog
