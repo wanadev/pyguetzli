@@ -18,30 +18,13 @@ Description of **Guetzli** from official’s repo:
 Building and Installing PyGuetzli
 ---------------------------------
 
-In order to build Guetzli, GCC and GNU Make are required. On
-Debian / Ubuntu, this can be installed with the following command::
+You can install PyGuetzli from PyPI using pip::
 
-   sudo apt-get install build-essential
+    pip install pyguetzli
 
+Read the documentation here for more information:
 
-Installing from PYPI
-~~~~~~~~~~~~~~~~~~~~
-
-To install PyGuetzli from the PYPI package, just run the following
-command::
-
-   pip install pyguetzli
-
-
-Installing from source
-~~~~~~~~~~~~~~~~~~~~~~
-
-To build and install PyGuetzli from source, clone the repository, and
-run the ``pip install`` command from the project’s root directory::
-
-   git clone https://github.com/wanadev/pyguetzli.git
-   cd pyguetzli
-   pip install .
+* https://wanadev.github.io/pyguetzli/install.html
 
 
 Using PyGuetzli
