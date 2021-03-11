@@ -4,7 +4,6 @@ dist
 *.pyc
 __pycache__
 __env__
-README.rst
 *.o
 *.so
 *.dll

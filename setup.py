@@ -55,12 +55,9 @@ class CustomBuildPy(build_py):
 
 
 long_description = ""
-for readme_filename in ("README.rst", "README.md"):
-    if os.path.isfile(readme_filename):
-        with io.open(readme_filename, "r", encoding="utf-8") as f:
-            long_description = f.read()
-
-        break
+if os.path.isfile("README.rst"):
+    with io.open("README.rst", "r", encoding="utf-8") as f:
+        long_description = f.read()
 
 setup(
     name="pyguetzli",
@@ -96,4 +93,5 @@ setup(
     cmdclass={
         "build_py": CustomBuildPy,
     },
+
 )
