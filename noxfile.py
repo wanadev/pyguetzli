@@ -16,5 +16,5 @@ def test(session):
 
 @nox.session
 def gendoc(session):
-    session.install(".[dev]")
+    session.install(".[PIL,dev]")
     session.run("python", "setup.py", "build_sphinx")

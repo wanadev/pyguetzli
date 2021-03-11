@@ -15,22 +15,19 @@ Description of **Guetzli** from official’s repo:
    faster decompression speeds they offer.
 
 
-Installing PyGuetzli
---------------------
+Documentation
+-------------
 
-You can install PyGuetzli from PyPI using pip::
+* `Installation <https://wanadev.github.io/pyguetzli/install.html>`_
+* `Guetzli Python Module <https://wanadev.github.io/pyguetzli/guetzli.html>`_
+* `Using with PIL / Pillow images <https://wanadev.github.io/pyguetzli/pil_image.html>`_
+* `Contributing / Reporting a bug <https://wanadev.github.io/pyguetzli/contributing.html>`_
 
-    pip install pyguetzli
-
-Read the documentation here for more information:
-
-* https://wanadev.github.io/pyguetzli/install.html
+More topics at https://wanadev.github.io/
 
 
-Using PyGuetzli
----------------
-
-Example:
+Usage Example
+-------------
 
 .. code-block:: python
 
@@ -41,10 +38,6 @@ Example:
 
    output = open("./optimized.jpg", "wb")
    output.write(optimized_jpeg)
-
-For more information, please visit the project’s documentation:
-
-* http://wanadev.github.io/pyguetzli/
 
 
 Changelog
