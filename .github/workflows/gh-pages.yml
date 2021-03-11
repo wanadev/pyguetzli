@@ -26,11 +26,14 @@ jobs:
 
       - name: "Install Python dependencies"
         run: |
-          pip3 install setuptools nox
+          pip install setuptools nox
+          pip install cffi pillow sphinx sphinx-rtd-theme
 
       - name: "Build Sphinx Doc"
         run: |
-          nox -s gendoc
+          python setup.py build
+          pip install -e .
+          python setup.py build_sphinx
 
       - name: "Deploy Github Pages"
         uses: JamesIves/github-pages-deploy-action@3.7.1

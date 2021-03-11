@@ -16,5 +16,5 @@ def test(session):
 
 @nox.session
 def gendoc(session):
-    session.install(".[PIL,dev]")
+    session.install("sphinx", "sphinx-rtd-theme")
     session.run("python", "setup.py", "build_sphinx")

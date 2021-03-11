@@ -23,7 +23,7 @@ Documentation
 * `Using with PIL / Pillow images <https://wanadev.github.io/pyguetzli/pil_image.html>`_
 * `Contributing / Reporting a bug <https://wanadev.github.io/pyguetzli/contributing.html>`_
 
-More topics at https://wanadev.github.io/
+More topics at https://wanadev.github.io/pyguetzli/
 
 
 Usage Example
@@ -43,7 +43,8 @@ Usage Example
 Changelog
 ---------
 
-* **1.0.8**: Updates Guetzli and python dependencies
+* **1.0.9:** Provides prebuilt wheel packages
+* **1.0.8:** Updates Guetzli and python dependencies
 * **1.0.7:** Fixes unicode issue when installing pyguetzli (#4)
 * **1.0.6:** Fixes a typo in compilator options on unix
 * **1.0.5:** Adds optimization flags when compiling Guetzli
