@@ -20,7 +20,8 @@ class CustomBuildExt(build_ext):
             extra_cc_args = ["/O2"]
 
         self.compiler.set_include_dirs(
-            [
+            self.include_dirs
+            + [
                 "guetzli/",
                 "guetzli/third_party/butteraugli/",
             ]
