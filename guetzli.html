@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -88,7 +91,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guetzli Python Module</a></li>
@@ -168,14 +171,14 @@
 <span id="guetzli-python-module"></span><h1>Guetzli Python Module<a class="headerlink" href="#module-pyguetzli.guetzli" title="Permalink to this headline">¶</a></h1>
 <p>This module contains functions binded from the Guetzli C++ API.</p>
 <dl class="py data">
-<dt id="pyguetzli.guetzli.DEFAULT_JPEG_QUALITY">
-<code class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></code><code class="sig-name descname"><span class="pre">DEFAULT_JPEG_QUALITY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">95</span></em><a class="headerlink" href="#pyguetzli.guetzli.DEFAULT_JPEG_QUALITY" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyguetzli.guetzli.DEFAULT_JPEG_QUALITY">
+<span class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_JPEG_QUALITY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">95</span></em><a class="headerlink" href="#pyguetzli.guetzli.DEFAULT_JPEG_QUALITY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default quality for outputted JPEGs</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyguetzli.guetzli.process_jpeg_bytes">
-<code class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></code><code class="sig-name descname"><span class="pre">process_jpeg_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_jpeg_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.guetzli.process_jpeg_bytes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyguetzli.guetzli.process_jpeg_bytes">
+<span class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></span><span class="sig-name descname"><span class="pre">process_jpeg_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_jpeg_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.guetzli.process_jpeg_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an optimized JPEG from JPEG-encoded bytes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -204,8 +207,8 @@ probably corrupted or is not a JPEG)</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyguetzli.guetzli.process_rgb_bytes">
-<code class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></code><code class="sig-name descname"><span class="pre">process_rgb_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_rgb_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.guetzli.process_rgb_bytes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyguetzli.guetzli.process_rgb_bytes">
+<span class="sig-prename descclassname"><span class="pre">pyguetzli.guetzli.</span></span><span class="sig-name descname"><span class="pre">process_rgb_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyguetzli/guetzli.html#process_rgb_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyguetzli.guetzli.process_rgb_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an optimized JPEG from RGB bytes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
