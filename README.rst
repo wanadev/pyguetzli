@@ -43,6 +43,7 @@ Usage Example
 Changelog
 ---------
 
+* **1.0.10:** Python 3.10 support and wheels
 * **1.0.9:** Provides prebuilt wheel packages
 * **1.0.8:** Updates Guetzli and python dependencies
 * **1.0.7:** Fixes unicode issue when installing pyguetzli (#4)
