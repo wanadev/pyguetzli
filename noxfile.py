@@ -1,20 +1,20 @@
 import nox
 
 
-@nox.session
+@nox.session(reuse_venv=True)
 def lint(session):
     session.install("flake8")
     session.run("flake8", "pyguetzli", "test", "noxfile.py")
 
 
-@nox.session(python=["2.7", "3.7", "3.8", "3.9"])
+@nox.session(python=["3.7", "3.8", "3.9", "3.10"], reuse_venv=True)
 def test(session):
     session.install("pytest")
     session.install(".[PIL]")
     session.run("pytest", "-v", "test")
 
 
-@nox.session
+@nox.session(reuse_venv=True)
 def gendoc(session):
     session.install("sphinx", "sphinx-rtd-theme")
     session.run("python", "setup.py", "build_sphinx")
