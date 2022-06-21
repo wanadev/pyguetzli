@@ -42,6 +42,11 @@ Usage Example
 
 Changelog
 ---------
+* **1.0.11:**
+
+  * ``arm64`` and ``universal2`` wheels for macOS
+  * ``x86`` and ``x68_64`` wheels for musl-based Linux distro (Alpine,...)
+  * ``win32`` wheels for Windows (``x86_64`` were already available)
 
 * **1.0.10:** Python 3.10 support and wheels
 * **1.0.9:** Provides prebuilt wheel packages

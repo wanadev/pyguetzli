@@ -65,7 +65,7 @@ if os.path.isfile("README.rst"):
 
 setup(
     name="pyguetzli",
-    version="1.0.10",
+    version="1.0.11",
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",  # noqa
     url="https://github.com/wanadev/pyguetzli",
     license="Apache-2.0",
