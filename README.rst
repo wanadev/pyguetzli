@@ -42,6 +42,16 @@ Usage Example
 
 Changelog
 ---------
+
+* **[NEXT]** (changes on ``master`` but not released yet):
+
+  * Nothing yet :)
+
+* **1.0.12:**
+
+  * Guetzli: Fixed a crash caused by a bad access to a vector revealed when
+    compiled with "-D_GLIBCXX_ASSERTIONS" (David Odin)
+
 * **1.0.11:**
 
   * ``arm64`` and ``universal2`` wheels for macOS
