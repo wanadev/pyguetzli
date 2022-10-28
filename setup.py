@@ -67,11 +67,11 @@ setup(
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",  # noqa
     url="https://github.com/wanadev/pyguetzli",
     project_urls={
-        "source_code": "https://github.com/wanadev/pyguetzli",
-        "documentation": "https://wanadev.github.io/pyguetzli/",
-        "changelog": "https://github.com/wanadev/pyguetzli#changelog",
-        "issues": "https://github.com/wanadev/pyguetzli/issues",
-        "chat": "https://discord.gg/BmUkEdMuFp",
+        "Source Code": "https://github.com/wanadev/pyguetzli",
+        "Documentation": "https://wanadev.github.io/pyguetzli/",
+        "Changelog": "https://github.com/wanadev/pyguetzli#changelog",
+        "Issues": "https://github.com/wanadev/pyguetzli/issues",
+        "Chat": "https://discord.gg/BmUkEdMuFp",
     },
     license="Apache-2.0",
     long_description=long_description,
