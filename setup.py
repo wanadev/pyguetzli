@@ -51,9 +51,7 @@ class CustomBuildExt(build_ext):
             ],
             extra_preargs=extra_cc_args,
         )
-        self.compiler.create_static_lib(
-            objects, "guetzli", output_dir="guetzli"
-        )
+        self.compiler.create_static_lib(objects, "guetzli", output_dir="guetzli")
 
         build_ext.build_extensions(self)
 
@@ -68,6 +66,13 @@ setup(
     version="1.0.12",
     description="Python bindings for Google's Guetzli, a JPEG encoder that optimises JPEG compression",  # noqa
     url="https://github.com/wanadev/pyguetzli",
+    project_urls={
+        "source_code": "https://github.com/wanadev/pyguetzli",
+        "documentation": "https://wanadev.github.io/pyguetzli/",
+        "changelog": "https://github.com/wanadev/pyguetzli#changelog",
+        "issues": "https://github.com/wanadev/pyguetzli/issues",
+        "chat": "https://discord.gg/BmUkEdMuFp",
+    },
     license="Apache-2.0",
     long_description=long_description,
     keywords="image jpeg optimize guetzli",
