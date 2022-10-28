@@ -45,38 +45,42 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` but not released yet):
 
-  * Python 3.11 support
+  * Nothing yet :)
 
-* **1.0.12:**
+* **v1.0.13:**
+
+  * Added Python 3.11 support
+
+* **v1.0.12:**
 
   * Guetzli: Fixed a crash caused by a bad access to a vector revealed when
     compiled with "-D_GLIBCXX_ASSERTIONS" (David Odin)
 
-* **1.0.11:**
+* **v1.0.11:**
 
   * ``arm64`` and ``universal2`` wheels for macOS
   * ``x86`` and ``x68_64`` wheels for musl-based Linux distro (Alpine,...)
   * ``win32`` wheels for Windows (``x86_64`` were already available)
 
-* **1.0.10:** Python 3.10 support and wheels
-* **1.0.9:** Provides prebuilt wheel packages
-* **1.0.8:** Updates Guetzli and python dependencies
-* **1.0.7:** Fixes unicode issue when installing pyguetzli (#4)
-* **1.0.6:** Fixes a typo in compilator options on unix
-* **1.0.5:** Adds optimization flags when compiling Guetzli
-* **1.0.4:** MS Windows support
-* **1.0.3:** Updates Guetzli library
-* **1.0.2**: PIL Images: fixes crash with non RGB/RGBA images
+* **v1.0.10:** Python 3.10 support and wheels
+* **v1.0.9:** Provides prebuilt wheel packages
+* **v1.0.8:** Updates Guetzli and python dependencies
+* **v1.0.7:** Fixes unicode issue when installing pyguetzli (#4)
+* **v1.0.6:** Fixes a typo in compilator options on unix
+* **v1.0.5:** Adds optimization flags when compiling Guetzli
+* **v1.0.4:** MS Windows support
+* **v1.0.3:** Updates Guetzli library
+* **v1.0.2**: PIL Images: fixes crash with non RGB/RGBA images
   (grayscale, indexed,…)
-* **1.0.1**: Adds ``--std=c++11`` flag when building Guetzli
-* **1.0.0**:
+* **v1.0.1**: Adds ``--std=c++11`` flag when building Guetzli
+* **v1.0.0**:
 
   * New and simpler API
   * Built-in function to deal with PIL / Pillow Images
   * Documentation (Sphinx)
   * Guetzli update
 
-* **0.9.0**: Initial release
+* **v0.9.0**: Initial release
 
 
 .. |Github| image:: https://img.shields.io/github/stars/wanadev/pyguetzli?label=Github&logo=github
