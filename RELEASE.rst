@@ -21,7 +21,7 @@ Publish source dist and wheels on PyPI.
 
 
 3. Publish Github Release
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 * Make a release on Github
 * Add changelog
