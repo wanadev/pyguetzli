@@ -47,6 +47,11 @@ Changelog
 
   * Nothing yet :)
 
+* **v1.0.14:**"
+
+  * Guetzli: Apply a better patch to fix the crash caused by a bad access to
+    a vector revealed when compiled with "-D_GLIBCXX_ASSERTIONS" (David Odin)
+
 * **v1.0.13:**
 
   * Added Python 3.11 support
