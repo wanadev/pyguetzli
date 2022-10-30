@@ -1,7 +1,7 @@
 name: "Python Lint and Tests"
 
 env:
-CXXFLAGS: "-D_GLIBCXX_ASSERTIONS"
+  CXXFLAGS: "-D_GLIBCXX_ASSERTIONS"
 
 on: [push, pull_request]
 
