@@ -639,13 +639,13 @@ void Processor::SelectFrequencyMasking(const JPEGData& jpg, OutputImage* img,
             const int offset = candidate_coeff_offsets[block_ix];
             const int num_candidates =
                 candidate_coeff_offsets[block_ix + 1] - offset;
-            const float* candidate_errors = &candidate_coeff_errors[offset];
             const float max_err = max_block_error[block_ix];
             if (block_weight[block_ix] == 0) {
               continue;
             }
             if (direction > 0) {
               for (size_t i = last_index; i < num_candidates; ++i) {
+                const float* candidate_errors = &candidate_coeff_errors[offset];
                 float val = ((candidate_errors[i] - max_err) /
                              block_weight[block_ix]);
                 global_order.push_back(std::make_pair(block_ix, val));
@@ -653,6 +653,7 @@ void Processor::SelectFrequencyMasking(const JPEGData& jpg, OutputImage* img,
               blocks_to_change += (last_index < num_candidates ? 1 : 0);
             } else {
               for (int i = last_index - 1; i >= 0; --i) {
+                const float* candidate_errors = &candidate_coeff_errors[offset];
                 float val = ((max_err - candidate_errors[i]) /
                              block_weight[block_ix]);
                 global_order.push_back(std::make_pair(block_ix, val));
