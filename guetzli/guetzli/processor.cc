@@ -588,8 +588,6 @@ void Processor::SelectFrequencyMasking(const JPEGData& jpg, OutputImage* img,
   }
   comparator_->FinishBlockComparisons();
   candidate_coeff_offsets[num_blocks] = candidate_coeffs.size();
-  candidate_coeffs.push_back(candidate_coeffs[candidate_coeffs.size() - 1]);
-  candidate_coeff_errors.push_back(candidate_coeff_errors[candidate_coeff_errors.size() - 1]);
 
   std::vector<JpegHistogram> ac_histograms(ncomp);
   int jpg_header_size, dc_size;
