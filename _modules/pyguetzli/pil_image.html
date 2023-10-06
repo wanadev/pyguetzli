@@ -10,12 +10,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -26,14 +25,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> pyguetzli
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyguetzli
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,9 +66,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>pyguetzli.pil_image</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyguetzli.pil_image</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -88,7 +91,7 @@
 
 
 <span class="k">def</span> <span class="nf">_to_pil_rgb_image</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns an PIL Image converted to the RGB color space. If the image has</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns an PIL Image converted to the RGB color space. If the image has</span>
 <span class="sd">    an alpha channel (transparency), it will be overlaid on a black background.</span>
 
 <span class="sd">    :param image: the PIL image to convert</span>
@@ -115,8 +118,10 @@
     <span class="k">return</span> <span class="n">rgb_image</span>
 
 
-<div class="viewcode-block" id="process_pil_image"><a class="viewcode-back" href="../../pil_image.html#pyguetzli.pil_image.process_pil_image">[docs]</a><span class="k">def</span> <span class="nf">process_pil_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="n">guetzli</span><span class="o">.</span><span class="n">DEFAULT_JPEG_QUALITY</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Generates an optimized JPEG from a PIL image. If the image has an alpha</span>
+<div class="viewcode-block" id="process_pil_image">
+<a class="viewcode-back" href="../../pil_image.html#pyguetzli.pil_image.process_pil_image">[docs]</a>
+<span class="k">def</span> <span class="nf">process_pil_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="n">guetzli</span><span class="o">.</span><span class="n">DEFAULT_JPEG_QUALITY</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates an optimized JPEG from a PIL image. If the image has an alpha</span>
 <span class="sd">    channel (transparency), it will be overlaid on a black background.</span>
 
 <span class="sd">    :param image: the PIL image</span>
@@ -142,6 +147,7 @@
             <span class="o">*</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
             <span class="n">quality</span><span class="o">=</span><span class="n">quality</span>
             <span class="p">)</span></div>
+
 </pre></div>
 
            </div>

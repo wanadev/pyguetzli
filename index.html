@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to pyguetzli’s documentation! &mdash; pyguetzli 1.0.0 documentation</title>
@@ -11,12 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> pyguetzli
+
+          
+          
+          <a href="#" class="icon icon-home">
+            pyguetzli
           </a>
               <div class="version">
                 1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -65,8 +68,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Welcome to pyguetzli’s documentation!</li>
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to pyguetzli’s documentation!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -77,7 +80,7 @@
            <div itemprop="articleBody">
              
   <section id="welcome-to-pyguetzli-s-documentation">
-<h1>Welcome to pyguetzli’s documentation!<a class="headerlink" href="#welcome-to-pyguetzli-s-documentation" title="Permalink to this heading"></a></h1>
+<h1>Welcome to pyguetzli’s documentation!<a class="headerlink" href="#welcome-to-pyguetzli-s-documentation" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/wanadev/pyguetzli"><img alt="Github" src="https://img.shields.io/github/stars/wanadev/pyguetzli?label=Github&amp;logo=github" /></a> <a class="reference external" href="https://discord.gg/BmUkEdMuFp"><img alt="Discord" src="https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&amp;logoColor=ffffff" /></a> <a class="reference external" href="https://pypi.python.org/pypi/pyguetzli"><img alt="PYPI Version" src="https://img.shields.io/pypi/v/pyguetzli.svg" /></a> <a class="reference external" href="https://github.com/wanadev/pyguetzli/actions"><img alt="Build Status" src="https://github.com/wanadev/pyguetzli/actions/workflows/python-ci.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/wanadev/pyguetzli/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/pypi/l/pyguetzli.svg" /></a></p>
 <p><strong>PyGuetzli</strong> is a Python binding for Google’s <a class="reference external" href="https://github.com/google/guetzli">Guetzli</a> library.</p>
 <p>Description of <strong>Guetzli</strong> from official’s repo:</p>
@@ -89,7 +92,7 @@ only sequential (nonprogressive) JPEGs due to faster decompression speeds
 they offer.</p>
 </div></blockquote>
 <section id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading"></a></h2>
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyguetzli</span>
 
 <span class="n">input_jpeg</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./test/image.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
