@@ -10,8 +10,8 @@ Questions
 
 If you have any question about the Python binding itself, you can
 
-* `chat with us <https://discord.gg/BmUkEdMuFp>`_ on Discord,
-* or `open an issue <https://github.com/wanadev/yoga/issues>`_ on Github.
+* `chat with us <https://discord.gg/BmUkEdMuFp>`__ on Discord,
+* or `open an issue <https://github.com/wanadev/pyguetzli/issues>`__ on Github.
 
 If you have a question related to Guetzli, please look at the original Guetzli
 repository:
@@ -23,7 +23,7 @@ Bugs
 ----
 
 If you found a bug in the Python binding itself, please `open an issue
-<https://github.com/wanadev/pyguetzli/issues>`_ on Github with as much
+<https://github.com/wanadev/pyguetzli/issues>`__ on Github with as much
 information as possible:
 
 * How you installed PyGuetzli (Git, PyPI, Static build,...),
@@ -32,19 +32,19 @@ information as possible:
 * ...
 
 If you found a bug in Guetzli, please `open an issue
-<https://github.com/google/guetzli/issues>`_ on its Github project.
+<https://github.com/google/guetzli/issues>`__ on its Github project.
 
 
 Pull Requests
 -------------
 
-Please consider `filing a bug <https://github.com/wanadev/pyguetzli/issues>`_
+Please consider `filing a bug <https://github.com/wanadev/pyguetzli/issues>`__
 before starting to work on a new feature. This will allow us to discuss the
 best way to do it. This is, of course, not necessary if you just want to fix
 some typo in the documentation or small errors in the code.
 
 Please note that your code must pass tests and follow the coding style defined
-by the `pep8 <https://pep8.org/>`_.
+by the `pep8 <https://pep8.org/>`__.
 
 
 Installing Development Dependencies
