@@ -17,4 +17,5 @@ def test(session):
 @nox.session(reuse_venv=True)
 def gendoc(session):
     session.install("sphinx", "sphinx-rtd-theme")
-    session.run("python", "setup.py", "build_sphinx")
+    session.install(".")
+    session.run("sphinx-build", "-M", "html", "docs", "build")

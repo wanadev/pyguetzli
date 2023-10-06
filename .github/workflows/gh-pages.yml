@@ -31,9 +31,7 @@ jobs:
 
       - name: "Build Sphinx Doc"
         run: |
-          python setup.py build
-          pip install -e .
-          python setup.py build_sphinx
+          nox -s gendoc
 
       - name: "Deploy Github Pages"
         uses: JamesIves/github-pages-deploy-action@v4
