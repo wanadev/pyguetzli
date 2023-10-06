@@ -23,6 +23,10 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: "Install python dependencies"
+        run: |
+          pip install setuptools
+
       - name: "Build source distribution"
         run: |
           python setup.py sdist
