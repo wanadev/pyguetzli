@@ -7,7 +7,7 @@ def lint(session):
     session.run("flake8", "pyguetzli", "test", "noxfile.py")
 
 
-@nox.session(python=["3.7", "3.8", "3.9", "3.10", "3.11"], reuse_venv=True)
+@nox.session(python=["3.8", "3.9", "3.10", "3.11", "3.12"], reuse_venv=True)
 def test(session):
     session.install("pytest")
     session.install(".[PIL]")
