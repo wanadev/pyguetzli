@@ -45,13 +45,17 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` but not released yet):
 
+  * Nothing yet ;)
+
+* **v1.0.16:**
+
   * misc: Added Python 3.13 support (@flozz)
   * misc!: Removed Python 3.8 support (@flozz)
 
 * **v1.0.15:**
 
-  * Added Python 3.12 support (@flozz)
-  * Removed Python 3.7 support (@flozz)
+  * misc: Added Python 3.12 support (@flozz)
+  * misc!: Removed Python 3.7 support (@flozz)
 
 * **v1.0.14:**
 
