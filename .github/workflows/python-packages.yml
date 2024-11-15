@@ -23,7 +23,7 @@ jobs:
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: "Install python dependencies"
         run: |
@@ -49,9 +49,9 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-22.04
-          - windows-2019
-          - macos-11
+          - ubuntu-24.04
+          - windows-2022
+          - macos-13
 
     steps:
 
