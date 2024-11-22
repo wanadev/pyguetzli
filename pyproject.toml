@@ -1,3 +1,9 @@
 [build-system]
-requires = ["setuptools<72"]
+requires = [
+    "setuptools",
+    # ↓ See: https://github.com/pypa/distutils/issues/283
+    "setuptools<72; implementation_name=='pypy'",
+    # ↓ See https://github.com/wanadev/mozjpeg-lossless-optimization/issues/26
+    "setuptools<74; platform_system=='Windows' and implementation_name=='pypy'",
+]
 build-backend = "setuptools.build_meta"

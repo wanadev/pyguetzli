@@ -45,7 +45,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` but not released yet):
 
-  * Nothing yet ;)
+  * misc(deps): Only pin setuptools version on required platforms (@flozz)
 
 * **v1.0.16:**
 
