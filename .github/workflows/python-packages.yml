@@ -86,8 +86,12 @@ jobs:
 
       - name: "Download artifacts"
         uses: actions/download-artifact@v6
-        with:
-          path: dist/
+
+      - name: "Move packages to the dist/ folder"
+        run: |
+          mkdir dist/
+          mv sdist/* dist/
+          mv wheels-*/*.whl dist/
 
       - name: "List packages"
         run: |
