@@ -115,7 +115,7 @@ probably corrupted or is not a JPEG)</p>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyguetzli</span>
 
-<span class="n">input_jpeg_bytes</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./test/image.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">input_jpeg_bytes</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"./test/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_jpeg_bytes</span><span class="p">(</span><span class="n">input_jpeg_bytes</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -149,8 +149,8 @@ probably corrupted or is not a JPEG)</p>
 
 <span class="c1"># 2x2px RGB image</span>
 <span class="c1">#                |    red    |   green   |</span>
-<span class="n">image_pixels</span>  <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xFF\x00\x00\x00\xFF\x00</span><span class="s2">&quot;</span>
-<span class="n">image_pixels</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\xFF\xFF\xFF\xFF</span><span class="s2">&quot;</span>
+<span class="n">image_pixels</span>  <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xFF\x00\x00\x00\xFF\x00</span><span class="s2">"</span>
+<span class="n">image_pixels</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x00\x00\xFF\xFF\xFF\xFF</span><span class="s2">"</span>
 <span class="c1">#                |   blue    |   white   |</span>
 
 <span class="n">optimized_jpeg</span> <span class="o">=</span> <span class="n">pyguetzli</span><span class="o">.</span><span class="n">process_rgb_bytes</span><span class="p">(</span><span class="n">image_pixels</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
